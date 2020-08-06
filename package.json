@@ -1,0 +1,40 @@
+{
+  "name": "swinnen-architecture",
+  "description": "Commercial site for Architecture Swinnen",
+  "version": "1.0.0",
+  "author": "Jovi De Croock",
+  "dependencies": {
+    "gatsby": "^2.24.32",
+    "gatsby-plugin-manifest": "2.2.26",
+    "gatsby-plugin-offline": "2.0.25",
+    "gatsby-plugin-preact": "^4.0.9",
+    "gatsby-plugin-react-helmet": "3.1.13",
+    "gatsby-plugin-sass": "2.1.20",
+    "gatsby-plugin-styled-components": "3.1.11",
+    "i18next": "17.0.6",
+    "node-sass": "4.13.0",
+    "preact": "^10.0.4",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-helmet": "5.2.1",
+    "react-i18next": "^10.11.4",
+    "react-images": "^0.5.19",
+    "react-intersection-observer": "8.25.1",
+    "react-spring": "7.2.8",
+    "styled-components": "4.4.1"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write '**/*.js'"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoviDeCroock/Personal-Website-Liesse"
+  },
+  "homepage": "https://swinnen-architectuur.be/"
+}
