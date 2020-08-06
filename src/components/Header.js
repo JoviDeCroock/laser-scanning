@@ -10,9 +10,9 @@ const Header = ({ language, setLanguage }) => {
   return (
     <header id="header">
       <div className="inner">
-        <img src={avatar} className="image avatar" alt="Liesse Swinnen" />
+        <img src={avatar} className="image avatar" alt="EDS Systems" />
         <h1>
-          <strong>Liesse Swinnen</strong>
+          <strong>EDS Systems</strong>
         </h1>
         <p>
           {t('engineeringArchitecture')} - {t('belgium')}

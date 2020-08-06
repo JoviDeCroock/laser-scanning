@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   }
 `
 
-// TODO: make into style-less button (or link?)!
 const Option = styled.p`
   cursor: pointer;
   text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
