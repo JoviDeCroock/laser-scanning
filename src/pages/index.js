@@ -1,21 +1,23 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { useLang, useTitle, useMeta } from 'hooked-head'
 import { useTranslation } from 'react-i18next'
 
 import '../localization/i18n'
 import Layout from '../components/layout'
 
 import Skills from '../areas/Skills'
-// import Introduction from '../areas/Introduction';
 import Contact from '../areas/Contact'
 import Projects from '../areas/Projects'
-
-const siteTitle = 'EDS Systems'
 
 const HomeIndex = () => {
   const [language, setLanguage] = React.useState('nl')
   const prevLanguage = React.useRef(language)
   const { t, i18n } = useTranslation()
+
+  useLang(language);
+  useTitle('EDS Systems');
+  /* TODO: facebook and twitter meta tags. */
+  useMeta({ name: 'description', content: t('siteDescription') });
 
   React.useEffect(() => {
     if (prevLanguage.current !== language) {
@@ -25,16 +27,7 @@ const HomeIndex = () => {
 
   return (
     <Layout language={language} setLanguage={setLanguage}>
-      <Helmet>
-        {/* TODO: translate title */}
-        <title>{siteTitle}</title>
-        <html lang={language} />
-        <meta name="description" content={t('siteDescription')} />
-        {/* TODO: facebook and twitter meta tags. */}
-      </Helmet>
       <div id="main">
-        {/* TODO: fill introduction with text */}
-        {/* <Introduction /> */}
         <Skills />
         <Projects />
         <Contact />
