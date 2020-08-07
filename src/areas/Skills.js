@@ -20,10 +20,10 @@ const Skills = () => {
     <section id="two">
       <div className="skills">
         <h2>{t('skills')}</h2>
-        <ImageWrapper src={scanner}/>
-        <ImageWrapper src={pointcloud} />
-        <ImageWrapper src={plan} />
-        <ImageWrapper src={drawing} />
+        <ImageWrapper alt="3D laser scanner" src={scanner}/>
+        <ImageWrapper alt="pointcloud" src={pointcloud} />
+        <ImageWrapper alt="plan of a building" src={plan} />
+        <ImageWrapper alt="3D model of building" src={drawing} />
       </div>
     </section>
   )
