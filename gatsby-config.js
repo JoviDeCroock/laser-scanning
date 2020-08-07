@@ -10,8 +10,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'liesse-swinnen',
-        short_name: 'liesse',
+        name: 'EDS Systems',
+        short_name: 'EDS Systems',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',

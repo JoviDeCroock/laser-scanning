@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import Skills from '../areas/Skills'
 import Contact from '../areas/Contact'
 import Projects from '../areas/Projects'
+import Introduction from '../areas/Introduction';
 
 const HomeIndex = () => {
   const [language, setLanguage] = React.useState('nl')
@@ -16,7 +17,6 @@ const HomeIndex = () => {
 
   useLang(language);
   useTitle('EDS Systems');
-  /* TODO: facebook and twitter meta tags. */
   useMeta({ name: 'description', content: t('siteDescription') });
 
   React.useEffect(() => {
@@ -28,6 +28,7 @@ const HomeIndex = () => {
   return (
     <Layout language={language} setLanguage={setLanguage}>
       <div id="main">
+        <Introduction />
         <Skills />
         <Projects />
         <Contact />

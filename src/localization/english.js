@@ -6,7 +6,7 @@ export default {
     getInTouch: 'Get in touch',
     phone: 'Phone',
     recentWork: 'Projects',
-    skills: 'Skills',
+    skills: '3D scanning and processing',
     siteDescription: '3D Laser Scanning',
   },
 }

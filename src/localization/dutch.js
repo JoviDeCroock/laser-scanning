@@ -6,7 +6,7 @@ export default {
     getInTouch: 'Neem contact op',
     phone: 'Telefoon',
     recentWork: 'Projecten',
-    skills: 'Vaardigheden',
+    skills: '3D scanning en verwerking',
     siteDescription: '3D Laser Scanning',
   },
 }
