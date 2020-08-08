@@ -27,7 +27,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  padding-bottom: 32px;
 `;
 
 const Footer = styled.div`
@@ -42,6 +42,7 @@ const Footer = styled.div`
 const modalStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.58)",
+    overflow: 'auto'
   },
 };
 
@@ -51,16 +52,19 @@ const StyledModal = styled(ReactModal)`
   border-radius: 10px;
   bottom: auto;
   left: auto;
-  margin: 64px auto;
   max-width: 960px;
   min-height: 500px;
-  overflow: scroll;
   padding: 32px;
   position: relative;
   right: auto;
   top: auto;
-  @media only screen and (min-width: 768px) {
+  margin: 64px auto;
+  @media (min-width: 768px) {
     min-height: 900px;    
+  }
+
+  :focus {
+    outline: none;
   }
 `;
 
@@ -81,6 +85,7 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
   useNoBodyScroll()
   return (
     <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
+      <Button className="icon fa-times" onClick={onRequestClose} />
       <HeaderWrapper>
         <HeaderIcon src={icon.src} alt={icon.alt} />
         <HeaderTitle>{title}</HeaderTitle>
@@ -95,7 +100,6 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
           </Footer>
         }
       </Body>
-      <Button className="icon fa-times" onClick={onRequestClose} />
     </StyledModal>
   )
 }
