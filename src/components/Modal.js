@@ -29,26 +29,41 @@ const Body = styled.div`
   height: 100%;
 `;
 
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  right: 50%;
+`;
+
 const modalStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.58)",
   },
-  content: {
-    position: "relative",
-    top: "auto",
-    left: "auto",
-    right: "auto",
-    bottom: "auto",
-    maxWidth: 960,
-    margin: "32px auto",
-    padding: 32,
-    border: 0,
-    minHeight: 500,
-  },
 };
 
+const StyledModal = styled(ReactModal)`
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  bottom: auto;
+  left: auto;
+  margin: 32px auto;
+  max-width: 960px;
+  min-height: 500px;
+  padding: 32px;
+  position: relative;
+  right: auto;
+  top: auto;
+  @media only screen and (min-width: 768px) {
+    min-height: 900px;    
+  }
+`;
+
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
-  <ReactModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
+  <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
     <HeaderWrapper>
       <HeaderIcon src={icon.src} alt={icon.alt} />
       <HeaderTitle>{title}</HeaderTitle>
@@ -58,12 +73,12 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
         {children}
       </div>
       {footer &&
-        <div>
+        <Footer>
           {footer}
-        </div>
+        </Footer>
       }
     </Body>
-  </ReactModal>
+  </StyledModal>
 )
 
 export default Modal;

@@ -16,9 +16,11 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.button`  
   background-color: white;
+  border: none;
   border-radius: 100%;
   cursor: pointer;
-  height: 25spx;
+  height: 50px;
+  width: 50px;
   margin-left: 16px;
 `;
 
@@ -42,8 +44,8 @@ const IconWrapper = ({
       icon={{ src, alt }}
       footer={
         <ButtonWrapper>
-          {prev && <Button onClick={prev}>&#60;</Button>}
-          {next && <Button onClick={next}>&#62;</Button>}
+          {prev && <Button className="icon fa-arrow-left" onClick={prev} />}
+          {next && <Button className="icon fa-arrow-right" onClick={next} />}
         </ButtonWrapper>
       }
     >
