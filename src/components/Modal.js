@@ -46,11 +46,11 @@ const modalStyles = {
 
 const StyledModal = styled(ReactModal)`
   background-color: white;
-  border: 1px solid grey;
+  border: 1px solid transparent;
   border-radius: 10px;
   bottom: auto;
   left: auto;
-  margin: 32px auto;
+  margin: 64px auto;
   max-width: 960px;
   min-height: 500px;
   padding: 32px;
@@ -60,6 +60,19 @@ const StyledModal = styled(ReactModal)`
   @media only screen and (min-width: 768px) {
     min-height: 900px;    
   }
+`;
+
+const Button = styled.button`
+  color: white;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 16px;
+  top: -32px;
+  right: 0px;
 `;
 
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
@@ -78,6 +91,7 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
         </Footer>
       }
     </Body>
+    <Button className="icon fa-times" onClick={onRequestClose} />
   </StyledModal>
 )
 
