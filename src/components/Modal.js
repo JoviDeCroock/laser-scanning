@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ReactModal from 'react-modal'
+import useNoBodyScroll from './useNoBodyScroll';
 
 ReactModal.setAppElement(`#___gatsby`);
 
@@ -53,6 +54,7 @@ const StyledModal = styled(ReactModal)`
   margin: 64px auto;
   max-width: 960px;
   min-height: 500px;
+  overflow: scroll;
   padding: 32px;
   position: relative;
   right: auto;
@@ -75,24 +77,27 @@ const Button = styled.button`
   right: 0px;
 `;
 
-const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
-  <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
-    <HeaderWrapper>
-      <HeaderIcon src={icon.src} alt={icon.alt} />
-      <HeaderTitle>{title}</HeaderTitle>
-    </HeaderWrapper>
-    <Body>
-      <div>
-        {children}
-      </div>
-      {footer &&
-        <Footer>
-          {footer}
-        </Footer>
-      }
-    </Body>
-    <Button className="icon fa-times" onClick={onRequestClose} />
-  </StyledModal>
-)
+const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
+  useNoBodyScroll()
+  return (
+    <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
+      <HeaderWrapper>
+        <HeaderIcon src={icon.src} alt={icon.alt} />
+        <HeaderTitle>{title}</HeaderTitle>
+      </HeaderWrapper>
+      <Body>
+        <div>
+          {children}
+        </div>
+        {footer &&
+          <Footer>
+            {footer}
+          </Footer>
+        }
+      </Body>
+      <Button className="icon fa-times" onClick={onRequestClose} />
+    </StyledModal>
+  )
+}
 
 export default Modal;
