@@ -8,7 +8,7 @@ const Projects = () => {
   const { t } = useTranslation()
   return (
     <section id="three">
-      <h2>{t('recentWork')}</h2>
+      <h2>{t('projects')}</h2>
       <Gallery images={projects} />
     </section>
   )

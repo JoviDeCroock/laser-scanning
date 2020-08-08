@@ -2,11 +2,11 @@ export default {
   translation: {
     address: 'Adresse',
     belgium: 'Belgique',
-    engineeringArchitecture: '3D Laser Scanning',
+    scanning: 'Numérisation',
     getInTouch: 'Contactez-moi',
     phone: 'Téléphone',
-    recentWork: 'Projets',
-    threeD: 'Compétences',
-    siteDescription: "3D Laser Scanning",
+    projects: 'Projets',
+    threeD: 'Numérisation et traitement 3D',
+    siteDescription: "Numérisation 3D",
   },
 }
