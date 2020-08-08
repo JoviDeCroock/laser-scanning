@@ -6,6 +6,10 @@ const Image = styled.img`
   cursor: pointer;
   width: 100%;
   height: 100%;
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const ButtonGroup = styled.div`
@@ -27,15 +31,25 @@ const Button = styled.button`
 
 const ImageWrapper = styled.span`
   align-items:center;
-  width: 20%;
-  height: 20%;
+  width: 50%;
+  height: 75%;
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    width: 20%;
+    margin-left: unset;
+    margin-right: unset;
+  }
 `;
 
 const SubText = styled.p`
   cursor: pointer;
   margin-bottom: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const ButtonWrapper = styled.span`
@@ -72,8 +86,8 @@ const IconWrapper = ({
 }) => (
   <React.Fragment>
     <ImageWrapper>
-      <Image alt={alt} src={src} onClick={open} />
-      <SubText onClick={open}>{title}</SubText>
+      <Image title={title} alt={alt} src={src} onClick={open} />
+      <SubText title={title} onClick={open}>{title}</SubText>
     </ImageWrapper>
     <Modal
       isOpen={isOpen}

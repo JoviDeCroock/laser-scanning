@@ -1,23 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import drawing from '../assets/images/icons/3ddrawing.png'
-import scanner from '../assets/images/icons/3dscanner.png'
-import plan from '../assets/images/icons/plan.png'
-import pointcloud from '../assets/images/icons/pointcloud.png'
 import IconWrapper from '../components/InformationIcon'
+import infoBlocks from '../constants/infoBlocks'
 
 const Gallery = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
-// TODO: convert data to array so we can easily derive nextLogo, ....
 const Skills = () => {
-  const { t } = useTranslation()
-
   const [opened, setIsOpened] = React.useState(0);
-
+  const { t } = useTranslation()
   const close = () => setIsOpened(0);
 
   return (
@@ -25,98 +25,39 @@ const Skills = () => {
       <div className="skills">
         <h2>{t('threeD')}</h2>
         <Gallery>
-          <IconWrapper
-            close={close}
-            open={() => setIsOpened(1)}
-            next={() => setIsOpened(2)}
-            nextLogoAlt="pointcloud"
-            nextLogo={pointcloud}
-            isOpen={opened === 1}
-            src={scanner}
-            alt="3D laser scanner"
-            title="3D laserscanning"
-          >
-            <React.Fragment>
-              <p>
-                3D laserscanning is een techniek waarbij op zeer korte tijd bestaande situaties uiterste precies en in
-                drie dimensies opgemeten worden. De laserscanner verricht niet enkel gedetailleerde metingen, maar
-                kan tevens panoramische beelden vastleggen. Hierdoor is deze techniek uiterst geschikt om de
-                complexiteit van een project te beheren aan de hand van exacte en betrouwbare 3D-voorstellingen van
-                de bestaande situatie (As-built). De opmeting vormt een geschikte basis voor nauwkeurige plannen en
-                modellen.
-              </p>
-              <p>
-                3D laserscanning kan toegepast worden voor opmetingen van gebouwen, monumenten, industriële
-                installaties, infrastructuur, en zoveel meer. Dit zowel voor de constructie voor een snelle en correcte
-                opmeting van de huidige situatie met een lage foutmarge en realistische panoramische beelden;
-                tijdens de constructie voor as-built-, leiding- en constructieplannen; en na de constructie voor as-built
-                en controleplannen.
-              </p>
-            </React.Fragment>
-          </IconWrapper>
-          <IconWrapper
-            close={close}
-            next={() => setIsOpened(3)}
-            prev={() => setIsOpened(1)}
-            open={() => setIsOpened(2)}
-            prevLogoAlt="3D laser scanner"
-            prevLogo={scanner}
-            nextLogoAlt="plan of a building"
-            nextLogo={plan}
-            isOpen={opened === 2}
-            src={pointcloud}
-            alt="pointcloud"
-            title="scan tot puntenwolk"
-          >
-            <p>
-              Elk punt dat opgemeten wordt door de 3D laserscanner, wordt gedefinieerd door een uiterst
-              nauwkeurige x-, y-, z-positie. Al deze punten samen vormen een puntenwolk die de huidige
-              situatie nauwgezet weergeven. Deze puntenwolk vormt de geschikte basis voor de verwerking
-              tot gedetailleerde plannen en modellen.
-              De toevoeging van panoramische beelden maakt het mogelijk voor de gebruiker om een beter
-              inzicht te verkrijgen in de gescande situatie. Dit leidt tot een sterke vermindering van het aantal
-              plaats bezoeken en is tevens een handig visueel hulpmiddel bij overleg.
-            </p>
-          </IconWrapper>
-          <IconWrapper
-            close={close}
-            open={() => setIsOpened(3)}
-            next={() => setIsOpened(4)}
-            prev={() => setIsOpened(2)}
-            isOpen={opened === 3}
-            src={plan}
-            prevLogo={pointcloud}
-            nextLogo={drawing}
-            nextLogoAlt="3D model of a building"
-            prevLogoAlt="pointcloud"
-            alt="plan of a building"
-            title="scan tot plan"
-          >
-            <p>
-              De verworven puntenwolk dient als basis voor het uitwerken van inplantingsplannen,
-              grondplannen, detailplannen, verticale doorsnedes en gevelzichten. De graad van uitwerking
-              wordt op voorhand vastgelegd (i.e. detaillering van deuren, ramen, ornamenten,...).
-            </p>
-          </IconWrapper>
-          <IconWrapper
-            close={close}
-            open={() => setIsOpened(4)}
-            prev={() => setIsOpened(3)}
-            prevLogo={plan}
-            isOpen={opened === 4}
-            src={drawing}
-            prevLogoAlt="plan of a building"
-            alt="3D model of a building"
-            title="scan tot model"
-          >
-            <p>
-              De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
-              en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
-              deuren, ramen, ornamenten,...).
-            </p>
-          </IconWrapper>
-        </Gallery>
+          {infoBlocks.map((info, i) => {
+            const index = i + 1;
+            const prev = i >= 1 ? () => setIsOpened(index - 1) : undefined;
+            const next = i < infoBlocks.length - 1 ? () => setIsOpened(index + 1) : undefined;
 
+            const props = {
+              close,
+              prev,
+              next,
+              src: info.icon,
+              title: info.title,
+              alt: info.alt,
+              open: () => setIsOpened(index),
+              isOpen: opened === index,
+            };
+
+            if (next) {
+              props.nextLogoAlt = infoBlocks[i + 1].alt;
+              props.nextLogo = infoBlocks[i + 1].icon;
+            }
+
+            if (prev) {
+              props.prevLogoAlt = infoBlocks[i - 1].alt;
+              props.prevLogo = infoBlocks[i - 1].icon;
+            }
+
+            return (
+              <IconWrapper {...props}>
+                {info.paragraphs.map(t => <p>{t}</p>)}
+              </IconWrapper>
+            ) 
+          })}
+        </Gallery>
       </div>
     </section>
   )
