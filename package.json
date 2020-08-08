@@ -9,6 +9,7 @@
     "gatsby-plugin-manifest": "2.4.22",
     "gatsby-plugin-offline": "2.0.25",
     "gatsby-plugin-preact": "^4.0.9",
+    "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-sass": "2.3.12",
     "gatsby-plugin-styled-components": "3.3.10",
     "hooked-head": "^0.4.1",

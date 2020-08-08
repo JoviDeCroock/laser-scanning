@@ -21,6 +21,13 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
+    { 
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        // develop: true, // Enable while using `gatsby develop`
+      }
+    },
     'gatsby-plugin-offline',
   ],
 }
