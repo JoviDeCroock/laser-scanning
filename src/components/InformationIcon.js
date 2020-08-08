@@ -42,6 +42,7 @@ const ButtonWrapper = styled.span`
 `;
 
 const Logo = styled.img`
+  cursor: pointer;
   height: 50px;
   width: 50px;
 `;
@@ -75,14 +76,14 @@ const IconWrapper = ({
         <ButtonGroup>
           {prev && (
             <ButtonWrapper>
-              <Logo src={prevLogo} alt={prevLogoAlt} />
+              <Logo src={prevLogo} alt={prevLogoAlt} onClick={prev} />
               <Button className="icon fa-arrow-left" onClick={prev} />
             </ButtonWrapper>
           )}
           {next && (
             <ButtonWrapper>
               <Button className="icon fa-arrow-right" onClick={next} />
-              <Logo src={nextLogo} alt={nextLogoAlt} />
+              <Logo src={nextLogo} alt={nextLogoAlt} onClick={next} />
             </ButtonWrapper>
           )}
         </ButtonGroup>
