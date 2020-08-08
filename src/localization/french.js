@@ -8,5 +8,6 @@ export default {
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
     siteDescription: "Numérisation 3D",
+    introuction: 'introduction',
   },
 }

@@ -8,5 +8,6 @@ export default {
     projects: 'Projects',
     threeD: '3D scanning and processing',
     siteDescription: '3D Laser Scanning',
+    introuction: 'introduction',
   },
 }
