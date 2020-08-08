@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import '../localization/i18n'
 import Layout from '../components/layout'
 
-import Skills from '../areas/Skills'
+import ThreeDInformation from '../areas/3DInformation'
 import Contact from '../areas/Contact'
 import Projects from '../areas/Projects'
 import Introduction from '../areas/Introduction';
@@ -29,7 +29,7 @@ const HomeIndex = () => {
     <Layout language={language} setLanguage={setLanguage}>
       <div id="main">
         <Introduction />
-        <Skills />
+        <ThreeDInformation />
         <Projects />
         <Contact />
       </div>

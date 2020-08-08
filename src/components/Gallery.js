@@ -1,83 +1,69 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React from 'react'
 import Lightbox from 'react-images'
 
-class Gallery extends Component {
-  state = {
-    lightboxIsOpen: false,
-    currentImage: 0,
-  }
-
-  openLightbox = (i, e) => {
+const Gallery = ({ images }) => {
+  const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
+  
+  const openLightbox = (i, e) => {
     e.preventDefault()
-    this.setState({ currentImage: 0, lightboxIsOpen: i })
+    setState({ currentImage: 0, lightboxIsOpen: i })
   }
 
-  closeLightbox = () => {
-    this.setState({ currentImage: 0, lightboxIsOpen: false })
+  const closeLightbox = () => {
+    setState({ currentImage: 0, lightboxIsOpen: false })
   }
 
-  gotoPrevious = () => {
-    this.setState({ currentImage: this.state.currentImage - 1 })
+  const gotoPrevious = () => {
+    setState({ ...state, currentImage: state.currentImage - 1 })
   }
 
-  gotoNext = () => {
-    this.setState({ currentImage: this.state.currentImage + 1 })
+  const gotoNext = () => {
+    setState({ ...state, currentImage: state.currentImage + 1 })
   }
 
-  gotoImage = i => {
-    this.setState({ currentImage: i })
+  const gotoImage = i => {
+    setState({ ...state, currentImage: i })
   }
 
-  handleClickImage = () => {
-    if (this.state.currentImage === this.props.images.length - 1) return
-    this.gotoNext()
+  const handleClickImage = () => {
+    if (state.currentImage === images.length - 1) return
+    gotoNext()
   }
 
-  render() {
-    const { images } = this.props
-    return (
-      <div>
-        <div className="row">
-          {images ? (
-            images.map((obj, i) => (
-              <React.Fragment key={i}>
-                <article className="6u 12u$(xsmall) work-item" key={i}>
-                  <a
-                    className="image fit thumb"
-                    href={obj.thumbnail}
-                    onClick={e => this.openLightbox(i, e)}
-                  >
-                    <img alt="thumbnail" src={obj.thumbnail} />
-                  </a>
+  return (
+    <div>
+      <div className="row">
+        {images ? (
+          images.map((obj, i) => (
+            <React.Fragment key={i}>
+              <article className="6u 12u$(xsmall) work-item" key={i}>
+                <a
+                  className="image fit thumb"
+                  href={obj.thumbnail}
+                  onClick={e => { openLightbox(i, e) }}
+                >
+                  <img alt="thumbnail" src={obj.thumbnail} />
+                </a>
 
-                  <h3>{obj.caption}</h3>
-                  <p>{obj.description}</p>
-                </article>
-                <Lightbox
-                  currentImage={this.state.currentImage}
-                  images={obj.additionalImages}
-                  isOpen={this.state.lightboxIsOpen === i}
-                  onClickImage={this.handleClickImage}
-                  onClickNext={this.gotoNext}
-                  onClickPrev={this.gotoPrevious}
-                  onClickThumbnail={this.gotoImage}
-                  onClose={this.closeLightbox}
-                />
-              </React.Fragment>
-            ))
-          ) : (
-            <React.Fragment />
-          )}
-        </div>
+                <h3>{obj.caption}</h3>
+                <p>{obj.description}</p>
+              </article>
+              <Lightbox
+                currentImage={state.currentImage}
+                images={obj.additionalImages}
+                isOpen={state.lightboxIsOpen === i}
+                onClickImage={handleClickImage}
+                onClickNext={gotoNext}
+                onClickPrev={gotoPrevious}
+                onClickThumbnail={gotoImage}
+                onClose={closeLightbox}
+              />
+            </React.Fragment>
+          ))
+        ) : <React.Fragment />}
       </div>
-    )
-  }
-}
-
-Gallery.displayName = 'Gallery'
-Gallery.propTypes = {
-  images: PropTypes.array,
+    </div>
+  )
 }
 
 export default Gallery

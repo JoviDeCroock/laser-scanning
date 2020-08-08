@@ -6,7 +6,7 @@ export default {
     getInTouch: 'Contactez-moi',
     phone: 'Téléphone',
     recentWork: 'Projets',
-    skills: 'Compétences',
+    threeD: 'Compétences',
     siteDescription: "3D Laser Scanning",
   },
 }
