@@ -12,6 +12,7 @@ const Gallery = styled.div`
   justify-content: space-between;
 `
 
+// TODO: convert data to array so we can easily derive nextLogo, ....
 const Skills = () => {
   const { t } = useTranslation()
 
@@ -28,8 +29,11 @@ const Skills = () => {
             close={close}
             open={() => setIsOpened(1)}
             next={() => setIsOpened(2)}
+            nextLogoAlt="pointcloud"
+            nextLogo={pointcloud}
             isOpen={opened === 1}
-            src={scanner} alt="3D laser scanner"
+            src={scanner}
+            alt="3D laser scanner"
             title="3D laserscanning"
           >
             <React.Fragment>
@@ -55,6 +59,10 @@ const Skills = () => {
             next={() => setIsOpened(3)}
             prev={() => setIsOpened(1)}
             open={() => setIsOpened(2)}
+            prevLogoAlt="3D laser scanner"
+            prevLogo={scanner}
+            nextLogoAlt="plan of a building"
+            nextLogo={plan}
             isOpen={opened === 2}
             src={pointcloud}
             alt="pointcloud"
@@ -77,6 +85,10 @@ const Skills = () => {
             prev={() => setIsOpened(2)}
             isOpen={opened === 3}
             src={plan}
+            prevLogo={pointcloud}
+            nextLogo={drawing}
+            nextLogoAlt="3D model of a building"
+            prevLogoAlt="pointcloud"
             alt="plan of a building"
             title="scan tot plan"
           >
@@ -90,8 +102,10 @@ const Skills = () => {
             close={close}
             open={() => setIsOpened(4)}
             prev={() => setIsOpened(3)}
+            prevLogo={plan}
             isOpen={opened === 4}
             src={drawing}
+            prevLogoAlt="plan of a building"
             alt="3D model of a building"
             title="scan tot model"
           >

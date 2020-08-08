@@ -4,11 +4,11 @@ import Modal from '../components/Modal'
 
 const Image = styled.img`
   cursor: pointer;
-  width: 20%;
-  height: 20%;
+  width: 100%;
+  height: 100%;
 `
 
-const ButtonWrapper = styled.div`
+const ButtonGroup = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
@@ -24,6 +24,28 @@ const Button = styled.button`
   margin-left: 16px;
 `;
 
+const ImageWrapper = styled.span`
+  align-items:center;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const SubText = styled.p`
+  cursor: pointer;
+  margin-bottom: 0;
+`;
+
+const ButtonWrapper = styled.span`
+  display: flex;
+`;
+
+const Logo = styled.img`
+  height: 50px;
+  width: 50px;
+`;
+
 const IconWrapper = ({
   src, 
   alt,
@@ -34,19 +56,36 @@ const IconWrapper = ({
   open,
   next,
   prev,
+  prevLogo,
+  prevLogoAlt,
+  nextLogo,
+  nextLogoAlt,
 }) => (
   <React.Fragment>
-    <Image alt={alt} src={src} onClick={open} />
+    <ImageWrapper>
+      <Image alt={alt} src={src} onClick={open} />
+      <SubText onClick={open}>{title}</SubText>
+    </ImageWrapper>
     <Modal
       isOpen={isOpen}
       onRequestClose={close}
       title={title}
       icon={{ src, alt }}
       footer={
-        <ButtonWrapper>
-          {prev && <Button className="icon fa-arrow-left" onClick={prev} />}
-          {next && <Button className="icon fa-arrow-right" onClick={next} />}
-        </ButtonWrapper>
+        <ButtonGroup>
+          {prev && (
+            <ButtonWrapper>
+              <Logo src={prevLogo} alt={prevLogoAlt} />
+              <Button className="icon fa-arrow-left" onClick={prev} />
+            </ButtonWrapper>
+          )}
+          {next && (
+            <ButtonWrapper>
+              <Button className="icon fa-arrow-right" onClick={next} />
+              <Logo src={nextLogo} alt={nextLogoAlt} />
+            </ButtonWrapper>
+          )}
+        </ButtonGroup>
       }
     >
       <React.Fragment>
