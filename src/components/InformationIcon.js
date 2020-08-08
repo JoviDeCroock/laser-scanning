@@ -8,23 +8,50 @@ const Image = styled.img`
   height: 20%;
 `
 
-const IconWrapper = ({ src, alt, title, children}) => {
-  const [isOpen, setIsopen] = React.useState(false);
-  return (
-    <React.Fragment>
-      <Image alt={alt} src={src} onClick={() => setIsopen(true)} />
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => {
-          setIsopen(false);
-        }}
-        title={title}
-        icon={{ src, alt }}
-      >
+const ButtonWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`
+
+const Button = styled.button`  
+  background-color: white;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 25spx;
+  margin-left: 16px;
+`;
+
+const IconWrapper = ({
+  src, 
+  alt,
+  title,
+  children,
+  isOpen,
+  close,
+  open,
+  next,
+  prev,
+}) => (
+  <React.Fragment>
+    <Image alt={alt} src={src} onClick={open} />
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={close}
+      title={title}
+      icon={{ src, alt }}
+      footer={
+        <ButtonWrapper>
+          {prev && <Button onClick={prev}>&#60;</Button>}
+          {next && <Button onClick={next}>&#62;</Button>}
+        </ButtonWrapper>
+      }
+    >
+      <React.Fragment>
         {children}
-      </Modal>
-    </React.Fragment>
-  )
-}
+      </React.Fragment>
+    </Modal>
+  </React.Fragment>
+)
 
 export default IconWrapper

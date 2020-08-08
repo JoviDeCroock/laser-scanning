@@ -22,6 +22,13 @@ const HeaderTitle = styled.h1`
   margin-bottom: 0px;
 `;
 
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`;
+
 const modalStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.58)",
@@ -36,18 +43,26 @@ const modalStyles = {
     margin: "32px auto",
     padding: 32,
     border: 0,
+    minHeight: 500,
   },
 };
 
-const Modal = ({ children, isOpen, onRequestClose, icon, title }) => (
+const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => (
   <ReactModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
     <HeaderWrapper>
       <HeaderIcon src={icon.src} alt={icon.alt} />
       <HeaderTitle>{title}</HeaderTitle>
     </HeaderWrapper>
-    <div>
-      {children}
-    </div>
+    <Body>
+      <div>
+        {children}
+      </div>
+      {footer &&
+        <div>
+          {footer}
+        </div>
+      }
+    </Body>
   </ReactModal>
 )
 

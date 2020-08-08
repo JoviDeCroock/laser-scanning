@@ -15,12 +15,23 @@ const Gallery = styled.div`
 const Skills = () => {
   const { t } = useTranslation()
 
+  const [opened, setIsOpened] = React.useState(0);
+
+  const close = () => setIsOpened(0);
+
   return (
     <section id="two">
       <div className="skills">
         <h2>{t('threeD')}</h2>
         <Gallery>
-          <IconWrapper src={scanner} alt="3D laser scanner" title="3D laserscanning">
+          <IconWrapper
+            close={close}
+            open={() => setIsOpened(1)}
+            next={() => setIsOpened(2)}
+            isOpen={opened === 1}
+            src={scanner} alt="3D laser scanner"
+            title="3D laserscanning"
+          >
             <React.Fragment>
               <p>
                 3D laserscanning is een techniek waarbij op zeer korte tijd bestaande situaties uiterste precies en in
@@ -39,7 +50,16 @@ const Skills = () => {
               </p>
             </React.Fragment>
           </IconWrapper>
-          <IconWrapper src={pointcloud} alt="pointcloud" title="scan tot puntenwolk">
+          <IconWrapper
+            close={close}
+            next={() => setIsOpened(3)}
+            prev={() => setIsOpened(1)}
+            open={() => setIsOpened(2)}
+            isOpen={opened === 2}
+            src={pointcloud}
+            alt="pointcloud"
+            title="scan tot puntenwolk"
+          >
             <p>
               Elk punt dat opgemeten wordt door de 3D laserscanner, wordt gedefinieerd door een uiterst
               nauwkeurige x-, y-, z-positie. Al deze punten samen vormen een puntenwolk die de huidige
@@ -50,14 +70,31 @@ const Skills = () => {
               plaats bezoeken en is tevens een handig visueel hulpmiddel bij overleg.
             </p>
           </IconWrapper>
-          <IconWrapper src={plan} alt="plan of a building" title="scan tot plan">
+          <IconWrapper
+            close={close}
+            open={() => setIsOpened(3)}
+            next={() => setIsOpened(4)}
+            prev={() => setIsOpened(2)}
+            isOpen={opened === 3}
+            src={plan}
+            alt="plan of a building"
+            title="scan tot plan"
+          >
             <p>
               De verworven puntenwolk dient als basis voor het uitwerken van inplantingsplannen,
               grondplannen, detailplannen, verticale doorsnedes en gevelzichten. De graad van uitwerking
               wordt op voorhand vastgelegd (i.e. detaillering van deuren, ramen, ornamenten,...).
             </p>
           </IconWrapper>
-          <IconWrapper src={drawing} alt="3D model of a building" title="scan tot model">
+          <IconWrapper
+            close={close}
+            open={() => setIsOpened(4)}
+            prev={() => setIsOpened(3)}
+            isOpen={opened === 4}
+            src={drawing}
+            alt="3D model of a building"
+            title="scan tot model"
+          >
             <p>
               De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
               en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
