@@ -46,6 +46,7 @@
 /* Basic */
 
 	body {
+		overflow: auto;
 		background: _palette(bg);
 
 		&.is-loading {

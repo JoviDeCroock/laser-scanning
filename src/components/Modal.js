@@ -82,7 +82,7 @@ const Button = styled.button`
 `;
 
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
-  useNoBodyScroll()
+  useNoBodyScroll(isOpen)
   return (
     <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
       <Button className="icon fa-times" onClick={onRequestClose} />

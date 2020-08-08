@@ -1,14 +1,12 @@
 import React from 'react'
 
-const useNoBodyScroll = () => {
-  const oldOverflow = React.useRef();
+const useNoBodyScroll = (isOpen) => {
   React.useLayoutEffect(() => {
-    oldOverflow.current = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    if (isOpen) document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = oldOverflow.current;
+      document.body.style.overflow = 'auto';
     }
-  }, []);
+  }, [isOpen]);
 }
 
 export default useNoBodyScroll;

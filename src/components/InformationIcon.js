@@ -12,6 +12,7 @@ const ButtonGroup = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
+  width: 250px;
 `
 
 const Button = styled.button`  
@@ -39,12 +40,19 @@ const SubText = styled.p`
 
 const ButtonWrapper = styled.span`
   display: flex;
+  width: 50%;
 `;
 
 const Logo = styled.img`
   cursor: pointer;
   height: 50px;
   width: 50px;
+`;
+
+const Invisible = styled.span`
+  height: 50px;
+  width: 50%;
+  visibility: hidden;
 `;
 
 const IconWrapper = ({
@@ -74,18 +82,18 @@ const IconWrapper = ({
       icon={{ src, alt }}
       footer={
         <ButtonGroup>
-          {prev && (
+          {prev ? (
             <ButtonWrapper>
               <Logo src={prevLogo} alt={prevLogoAlt} onClick={prev} />
               <Button className="icon fa-arrow-left" onClick={prev} />
             </ButtonWrapper>
-          )}
-          {next && (
+          ) : <Invisible aria-hidden="true" />}
+          {next ? (
             <ButtonWrapper>
               <Button className="icon fa-arrow-right" onClick={next} />
               <Logo src={nextLogo} alt={nextLogoAlt} onClick={next} />
             </ButtonWrapper>
-          )}
+          ) : <Invisible aria-hidden="true" />}
         </ButtonGroup>
       }
     >
