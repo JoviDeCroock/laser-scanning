@@ -58,12 +58,12 @@ export default [
   {
     id: 'Grootbijgaardestraat',
     additionalImages: [
-      { src: GrootbijgaardestraatThreeD },
-      { src: GrootbijgaardestraatPlan },
+      { src: grootbijgaardestraatThreeD },
+      { src: grootbijgaardestraatPlan },
       { src: grootbijgaardestraatSection },
-      { src: GrootbijgaardestraatGevel },
+      { src: grootbijgaardestraatGevel },
     ],
-    thumbnail: GrootbijgaardestraatThreeD,
+    thumbnail: grootbijgaardestraatThreeD,
     caption: 'Grootbijgaardestraat',
     description: '2020',
   },
