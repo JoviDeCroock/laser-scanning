@@ -14,10 +14,10 @@ const Header = ({ language, setLanguage }) => {
         <h1>
           <strong>EDS Systems</strong>
         </h1>
-        <h2>
+        <h3>
           <strong>Mark Swinnen</strong>
-        </h2>
-        <p>
+        </h3>
+        <p style={{ fontSize: '1em' }}>
           {t('scanning')}
         </p>
         <LanguageSelector language={language} setLanguage={setLanguage} />
