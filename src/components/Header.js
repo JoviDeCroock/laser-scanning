@@ -15,7 +15,7 @@ const Header = ({ language, setLanguage }) => {
           <strong>EDS Systems</strong>
         </h1>
         <p>
-          {t('scanning')} - {t('belgium')}
+          {t('scanning')}
         </p>
         <LanguageSelector language={language} setLanguage={setLanguage} />
       </div>
