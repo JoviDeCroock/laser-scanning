@@ -1,7 +1,7 @@
 export default {
   translation: {
     address: 'Adresse',
-    scanning: 'Numérisation',
+    scanning: '3D laser scanning',
     getInTouch: 'Contactez-moi',
     phone: 'Téléphone',
     projects: 'Projets',
