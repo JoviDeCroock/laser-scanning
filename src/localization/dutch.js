@@ -1,12 +1,12 @@
 export default {
   translation: {
     address: 'Adres',
-    scanning: '3D laser Scanning',
+    scanning: '3D Laser Scanning',
     getInTouch: 'Neem contact op',
     phone: 'Telefoon',
     projects: 'Projecten',
     threeD: '3D scanning en verwerking',
-    siteDescription: '3D laser Scanning',
+    siteDescription: '3D Laser Scanning',
     introduction: 'Introductie',
     introCopy: `EDS Systems BV is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
