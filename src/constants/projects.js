@@ -20,7 +20,7 @@ import grootbijgaardestraatThreeD from '../assets/images/fulls/grootbijgaardestr
 import grootbijgaardestraatPlan from '../assets/images/fulls/grootbijgaardestraat/plan.jpg'
 import grootbijgaardestraatSection from '../assets/images/fulls/grootbijgaardestraat/section.jpg'
 import grootbijgaardestraatGevel from '../assets/images/fulls/grootbijgaardestraat/gevel.jpg'
-import grootbijgaardestraatPreview from '../assets/images/fulls/intendant/preview.jpg'
+import grootbijgaardestraatPreview from '../assets/images/fulls/grootbijgaardestraat/preview.jpg'
 
 export default [
   {
