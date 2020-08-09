@@ -73,12 +73,8 @@ const BodyImageWrapper = styled.div`
 `;
 
 const BodyImage = styled.img`
-  width: 300px;
-  height: 200px;
-  @media (min-width: 768px) {
-    width: 450px;
-    height: 300px;
-  }
+  width: 100%;
+  height: auto;
 `;
 
 const ThreeDInformation = () => {
