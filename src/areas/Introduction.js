@@ -7,7 +7,7 @@ const Introduction = () => {
     <section id="one">
       <div className="introduction">
         <h2>{t('introduction')}</h2>
-        <p>Hallo</p>
+        <p>{t('introCopy')}</p>
       </div>
     </section>
   )
