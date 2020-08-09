@@ -16,21 +16,18 @@ const infoBlocks = [
     image: null,
   }, {
     icon: pointcloud,
-    alt: "pointcloud",
     title: "scan tot puntenwolk",
     paragraphs: [`pointcloud1`],
     image: scanCloud,
     alt: 'a scan converted to a pointcloud'
   }, {
     icon: plan,
-    alt: 'plan of a building',
     title: 'scan tot plan',
     paragraphs: [`plan1`],
     image: scanPlan,
     alt: 'a scan converted to a plan'
   }, {
     icon: drawing,
-    alt: '3D model of a building',
     title: 'scan tot model',
     paragraphs: [`model1`],
     image: scanModel,
