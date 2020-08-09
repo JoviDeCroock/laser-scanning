@@ -6,7 +6,7 @@ import infoBlocks from '../constants/infoBlocks'
 
 const Gallery = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 24px;
   @media (min-width: 768px) {
     display: flex;
@@ -15,7 +15,7 @@ const Gallery = styled.div`
   }
 `
 
-const Skills = () => {
+const ThreeDInformation = () => {
   const [opened, setIsOpened] = React.useState(0);
   const { t } = useTranslation()
   const close = () => setIsOpened(0);
@@ -63,4 +63,4 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default ThreeDInformation

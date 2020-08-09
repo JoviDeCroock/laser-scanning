@@ -4,8 +4,8 @@ import Modal from '../components/Modal'
 
 const Image = styled.img`
   cursor: pointer;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   @media (min-width: 768px) {
     width: 100%;
     height: 100%;
