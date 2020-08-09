@@ -1,7 +1,7 @@
-import intendantThreeD from '../assets/images/fulls/intendant/threed.png'
-import intendantPlan from '../assets/images/fulls/intendant/plan.png'
-import intendantSnede from '../assets/images/fulls/intendant/snede.png'
-import intendantGevel from '../assets/images/fulls/intendant/gevel.png'
+import intendantThreeD from '../assets/images/fulls/intendant/iso.jpg'
+import intendantPlan from '../assets/images/fulls/intendant/plan.jpg'
+import intendantSnede from '../assets/images/fulls/intendant/snede.jpg'
+import intendantGevel from '../assets/images/fulls/intendant/gevel.jpg'
 
 import loodsThreeD from '../assets/images/fulls/loods/iso.jpg'
 import loodsPlan from '../assets/images/fulls/loods/plan.jpg'
