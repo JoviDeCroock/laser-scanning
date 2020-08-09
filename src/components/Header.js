@@ -12,8 +12,11 @@ const Header = ({ language, setLanguage }) => {
       <div className="inner">
         <img src={avatar} className="image avatar" alt="EDS Systems" />
         <h1>
-          <strong>EDS Systems - Mark Swinnen</strong>
+          <strong>EDS Systems</strong>
         </h1>
+        <h2>
+          <strong>Mark Swinnen</strong>
+        </h2>
         <p>
           {t('scanning')}
         </p>
