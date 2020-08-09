@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Footer from './Footer'
-import avatar from '../assets/images/avatar.jpg'
+import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
 
 const Header = ({ language, setLanguage }) => {
