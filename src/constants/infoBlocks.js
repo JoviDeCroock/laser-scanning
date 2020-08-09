@@ -11,7 +11,7 @@ const infoBlocks = [
   {
     icon: scanner,
     alt: '3D laser scanner',
-    title: '3D laser scanning',
+    title: '3D laser Scanning',
     paragraphs: [`laserScanner1`, `laserScanner2`],
     image: null,
   }, {
