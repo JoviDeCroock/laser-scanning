@@ -66,6 +66,21 @@ const SubTitle = styled.p`
   margin-bottom: 16px;
 `;
 
+const BodyImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const BodyImage = styled.img`
+  width: 300px;
+  height: 200px;
+  @media (min-width: 768px) {
+    width: 450px;
+    height: 300px;
+  }
+`;
+
 const ThreeDInformation = () => {
   const [opened, setIsOpened] = React.useState(0);
   const { t } = useTranslation()
@@ -105,6 +120,7 @@ const ThreeDInformation = () => {
             return (
               <IconWrapper {...props}>
                 {info.paragraphs.map(t => <p>{t}</p>)}
+                {info.image && <BodyImageWrapper><BodyImage src={info.image} /></BodyImageWrapper>}
               </IconWrapper>
             ) 
           })}

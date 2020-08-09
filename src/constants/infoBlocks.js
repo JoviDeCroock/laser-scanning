@@ -3,6 +3,10 @@ import scanner from '../assets/images/icons/3dscanner.png'
 import plan from '../assets/images/icons/plan.png'
 import pointcloud from '../assets/images/icons/pointcloud.png'
 
+import scanPlan from '../assets/images/scanPlan.jpg'
+import scanCloud from '../assets/images/scanCloud.jpg'
+import scanModel from '../assets/images/scanModel.jpg'
+
 const infoBlocks = [
   {
     icon: scanner,
@@ -20,7 +24,8 @@ const infoBlocks = [
       opmeting van de huidige situatie met een lage foutmarge en realistische panoramische beelden;
       tijdens de constructie voor as-built-, leiding- en constructieplannen; en na de constructie voor as-built
       en controleplannen.`
-    ]
+    ],
+    image: null,
   }, {
     icon: pointcloud,
     alt: "pointcloud",
@@ -33,7 +38,8 @@ const infoBlocks = [
       De toevoeging van panoramische beelden maakt het mogelijk voor de gebruiker om een beter
       inzicht te verkrijgen in de gescande situatie. Dit leidt tot een sterke vermindering van het aantal
       plaats bezoeken en is tevens een handig visueel hulpmiddel bij overleg.`
-    ]
+    ],
+    image: scanCloud
   }, {
     icon: plan,
     alt: 'plan of a building',
@@ -42,7 +48,8 @@ const infoBlocks = [
       `De verworven puntenwolk dient als basis voor het uitwerken van inplantingsplannen,
       grondplannen, detailplannen, verticale doorsnedes en gevelzichten. De graad van uitwerking
       wordt op voorhand vastgelegd (i.e. detaillering van deuren, ramen, ornamenten,...).`
-    ]
+    ],
+    image: scanPlan
   }, {
     icon: drawing,
     alt: '3D model of a building',
@@ -51,7 +58,8 @@ const infoBlocks = [
       `De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
       en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
       deuren, ramen, ornamenten,...).`
-    ]
+    ],
+    image: scanModel
   }
 ]
 

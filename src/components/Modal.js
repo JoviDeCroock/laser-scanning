@@ -27,7 +27,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 32px;
+  padding-bottom: 64px;
 `;
 
 const Footer = styled.div`
