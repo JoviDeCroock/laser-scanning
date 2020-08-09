@@ -119,7 +119,7 @@ const ThreeDInformation = () => {
 
             return (
               <IconWrapper {...props}>
-                {info.paragraphs.map(t => <p>{t}</p>)}
+                {info.paragraphs.map(key => <p>{t(key)}</p>)}
                 {info.image && <BodyImageWrapper><BodyImage src={info.image} /></BodyImageWrapper>}
               </IconWrapper>
             ) 
