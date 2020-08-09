@@ -6,7 +6,7 @@ export default {
     phone: 'Téléphone',
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
-    siteDescription: "Numérisation 3D",
+    siteDescription: "3D laser scanning",
     introduction: 'Introduction',
     introCopy: `EDS Systems BV is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
