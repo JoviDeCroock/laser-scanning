@@ -9,7 +9,7 @@ const Line = styled.div`
   margin-bottom: 12px;
   flex-direction: column;
   justify-content: center;
-  @media (min-width: 1350px) {
+  @media (min-width: 1080px) {
     flex-direction: row;
     justify-content: unset;
     align-items: center;
@@ -25,7 +25,7 @@ const Icons = styled.div`
   align-items: center;
   display: flex;
   margin-bottom: 6px;
-  @media (min-width: 1350px) {
+  @media (min-width: 1080px) {
     margin-bottom: 0;
     width: 35%;
   }
@@ -41,7 +41,7 @@ const Text = styled.p`
   margin: 0;
   margin-bottom: 12px;
   font-size: 16px;
-  @media (min-width: 1350px) {
+  @media (min-width: 1080px) {
     margin-bottom: 0;
     width: 65%;
   }
