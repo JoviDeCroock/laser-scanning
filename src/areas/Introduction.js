@@ -17,14 +17,14 @@ const Line = styled.div`
 `;
 
 const Image = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 `
 
 const Icons = styled.div`
   align-items: center;
   display: flex;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   @media (min-width: 1350px) {
     margin-bottom: 0;
     width: 35%;
