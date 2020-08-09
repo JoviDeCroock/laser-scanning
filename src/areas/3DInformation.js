@@ -53,6 +53,7 @@ const Gallery = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 24px;
+  margin-bottom: 32px;
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
