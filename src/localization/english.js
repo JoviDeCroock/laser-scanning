@@ -13,15 +13,15 @@ export default {
     scanToModel: 'Scan to model',
     siteDescription: '3D Laser Scanning',
     introduction: 'Introduction',
+    service: `EDS Systems BV can offer you the following services:`,
+    serviceMeasure: `Digital measurement and processing to pointcloud`,
+    servicePlan: `Digital measurement (including processing to pointcloud) and processing to plan`,
+    serviceModel: `Digital measurement (including processing to pointcloud) and processing to a 3D or BIM model`,
+    serviceFull: `Processing the by you delivered pointcloud to plan, 3D or BIM model`,
     introCopy: `EDS Systems BV is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
     industriële installaties en infrastructuur. Deze opmeting kan al dan niet uitgevoerd worden in
     samenwerking met een landmeter.`,
-    service: `EDS Systems BV kan U volgende mogelijke samenwerkingen aanbieden:`,
-    serviceMeasure: `Digitale opmeting en verwerking tot puntenwolk`,
-    servicePlan: `Digitale opmeting (inclusief verwerking tot puntenwolk) en verwerking tot plan`,
-    serviceModel: `Digitale opmeting (inclusief verwerking tot puntenwolk) en verwerking tot 3D of BIM model`,
-    serviceFull: `Verwerking van de door U aangeleverde puntenwolk tot plan, 3D of BIM model`,
     laserScanner1: `3D laserscanning is een techniek waarbij op zeer korte tijd bestaande situaties uiterste precies en in
     drie dimensies opgemeten worden. De laserscanner verricht niet enkel gedetailleerde metingen, maar
     kan tevens panoramische beelden vastleggen. Hierdoor is deze techniek uiterst geschikt om de
