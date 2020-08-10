@@ -11,24 +11,24 @@ const infoBlocks = [
   {
     icon: scanner,
     alt: '3D laser scanner',
-    title: '3D Laser Scanning',
+    title: 'threeDScanning',
     paragraphs: [`laserScanner1`, `laserScanner2`],
     image: null,
   }, {
     icon: pointcloud,
-    title: "scan tot puntenwolk",
+    title: "scanToCloud",
     paragraphs: [`pointcloud1`],
     image: scanCloud,
     alt: 'a scan converted to a pointcloud'
   }, {
     icon: plan,
-    title: 'scan tot plan',
+    title: 'scanToPlan',
     paragraphs: [`plan1`],
     image: scanPlan,
     alt: 'a scan converted to a plan'
   }, {
     icon: drawing,
-    title: 'scan tot model',
+    title: 'scanToModel',
     paragraphs: [`model1`],
     image: scanModel,
     alt: 'a scan converted to a 3D model'

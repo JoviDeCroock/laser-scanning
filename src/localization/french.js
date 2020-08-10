@@ -6,6 +6,10 @@ export default {
     phone: 'Téléphone',
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
+    threeDScanning: 'Scan laser 3D',
+    scanToPlan: 'Scan vers plan',
+    scanToCloud: 'Scan vers nuage de points',
+    scanToModel: 'Scan vers modèle',
     siteDescription: "3D Laser Scanning",
     introduction: 'Introduction',
     introCopy: `EDS Systems BV est une équipe de dessinateurs enthousiastes ayant une grande expérience dans le secteur de la construction.

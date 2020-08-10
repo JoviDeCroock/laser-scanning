@@ -6,6 +6,10 @@ export default {
     phone: 'Telefoon',
     projects: 'Projecten',
     threeD: '3D scanning en verwerking',
+    threeDScanning: '3D Laser Scanning',
+    scanToPlan: 'Scan tot plan',
+    scanToCloud: 'Scan tot puntenwolk',
+    scanToModel: 'Scan tot model',
     siteDescription: '3D Laser Scanning',
     introduction: 'Introductie',
     introCopy: `EDS Systems BV is een team van gedreven tekenaars met ervaring in de bouw, die zich

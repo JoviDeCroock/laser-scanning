@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import Modal from '../components/Modal'
 
 const Image = styled.img`
@@ -83,39 +84,42 @@ const IconWrapper = ({
   prevLogoAlt,
   nextLogo,
   nextLogoAlt,
-}) => (
-  <React.Fragment>
-    <ImageWrapper>
-      <Image title={title} alt={alt} src={src} onClick={open} />
-      <SubText title={title} onClick={open}>{title}</SubText>
-    </ImageWrapper>
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={close}
-      title={title}
-      icon={{ src, alt }}
-      footer={
-        <ButtonGroup>
-          {prev ? (
-            <ButtonWrapper>
-              <Logo src={prevLogo} alt={prevLogoAlt} onClick={prev} />
-              <Button className="icon fa-arrow-left" onClick={prev} />
-            </ButtonWrapper>
-          ) : <Invisible aria-hidden="true" />}
-          {next ? (
-            <ButtonWrapper>
-              <Button className="icon fa-arrow-right" onClick={next} />
-              <Logo src={nextLogo} alt={nextLogoAlt} onClick={next} />
-            </ButtonWrapper>
-          ) : <Invisible aria-hidden="true" />}
-        </ButtonGroup>
-      }
-    >
-      <React.Fragment>
-        {children}
-      </React.Fragment>
-    </Modal>
-  </React.Fragment>
-)
+}) => {
+  const { t } = useTranslation()
+  return (
+    <React.Fragment>
+      <ImageWrapper>
+        <Image title={t(title)} alt={alt} src={src} onClick={open} />
+        <SubText title={t(title)} onClick={open}>{t(title)}</SubText>
+      </ImageWrapper>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={close}
+        title={t(title)}
+        icon={{ src, alt }}
+        footer={
+          <ButtonGroup>
+            {prev ? (
+              <ButtonWrapper>
+                <Logo src={prevLogo} alt={prevLogoAlt} onClick={prev} />
+                <Button className="icon fa-arrow-left" onClick={prev} />
+              </ButtonWrapper>
+            ) : <Invisible aria-hidden="true" />}
+            {next ? (
+              <ButtonWrapper>
+                <Button className="icon fa-arrow-right" onClick={next} />
+                <Logo src={nextLogo} alt={nextLogoAlt} onClick={next} />
+              </ButtonWrapper>
+            ) : <Invisible aria-hidden="true" />}
+          </ButtonGroup>
+        }
+      >
+        <React.Fragment>
+          {children}
+        </React.Fragment>
+      </Modal>
+    </React.Fragment>
+  )
+}
 
 export default IconWrapper
