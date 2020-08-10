@@ -7,6 +7,14 @@ const Image = styled.img`
   cursor: pointer;
   width: auto;
   height: 80%;
+  border: 1px solid transparent;
+  border-radius: 100%;
+
+  &:hover {
+    transition: all .33s ease-in-out;
+    transform: scale(1.1);
+  }
+
   @media (min-width: 768px) {
     width: 100%;
     height: 100%;
@@ -51,6 +59,9 @@ const SubText = styled.p`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ButtonWrapper = styled.span`
