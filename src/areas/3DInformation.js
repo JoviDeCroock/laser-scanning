@@ -120,7 +120,7 @@ const ThreeDInformation = () => {
             return (
               <IconWrapper {...props}>
                 {info.paragraphs.map(key => <p>{t(key)}</p>)}
-                {info.image && <BodyImageWrapper><BodyImage src={info.image} alt={info.alt} /></BodyImageWrapper>}
+                {info.image && <BodyImageWrapper><BodyImage src={info.image} alt={t(info.alt)} /></BodyImageWrapper>}
               </IconWrapper>
             ) 
           })}
@@ -133,7 +133,7 @@ const ThreeDInformation = () => {
                 const isLast = i === service.icons.length - 1;
                 return (
                   <React.Fragment>
-                    <Image src={src} alt={alt} />
+                    <Image src={src} alt={t(alt)} />
                     {!isLast && <Arrow className="icon fa-arrow-right" />}
                   </React.Fragment>
                 )

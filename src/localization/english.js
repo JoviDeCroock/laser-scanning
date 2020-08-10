@@ -7,6 +7,7 @@ export default {
     projects: 'Projects',
     threeD: '3D scanning and processing',
     threeDScanning: '3D Laser Scanning',
+    scanner: '3D laser scanner',
     scanToPlan: 'Scan to plan',
     scanToCloud: 'Scan to pontcloud',
     scanToModel: 'Scan to model',

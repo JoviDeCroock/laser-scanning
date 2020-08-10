@@ -6,6 +6,7 @@ export default {
     phone: 'Téléphone',
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
+    scanner: 'Scan laser 3D',
     threeDScanning: 'Scan laser 3D',
     scanToPlan: 'Scan vers plan',
     scanToCloud: 'Scan vers nuage de points',

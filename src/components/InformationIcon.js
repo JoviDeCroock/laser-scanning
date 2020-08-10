@@ -89,26 +89,26 @@ const IconWrapper = ({
   return (
     <React.Fragment>
       <ImageWrapper>
-        <Image title={t(title)} alt={alt} src={src} onClick={open} />
+        <Image title={t(title)} alt={t(alt)} src={src} onClick={open} />
         <SubText title={t(title)} onClick={open}>{t(title)}</SubText>
       </ImageWrapper>
       <Modal
         isOpen={isOpen}
         onRequestClose={close}
         title={t(title)}
-        icon={{ src, alt }}
+        icon={{ src, alt: t(alt) }}
         footer={
           <ButtonGroup>
             {prev ? (
               <ButtonWrapper>
-                <Logo src={prevLogo} alt={prevLogoAlt} onClick={prev} />
+                <Logo src={prevLogo} alt={t(prevLogoAlt)} onClick={prev} />
                 <Button className="icon fa-arrow-left" onClick={prev} />
               </ButtonWrapper>
             ) : <Invisible aria-hidden="true" />}
             {next ? (
               <ButtonWrapper>
                 <Button className="icon fa-arrow-right" onClick={next} />
-                <Logo src={nextLogo} alt={nextLogoAlt} onClick={next} />
+                <Logo src={nextLogo} alt={t(nextLogoAlt)} onClick={next} />
               </ButtonWrapper>
             ) : <Invisible aria-hidden="true" />}
           </ButtonGroup>

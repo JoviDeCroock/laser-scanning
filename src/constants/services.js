@@ -5,16 +5,16 @@ import pointcloud from '../assets/images/icons/pointcloud.png'
 
 const services = [
   {
-    icons: [{ src: scanner, alt: 'laser-scanner' }, { src: pointcloud, alt: 'a pointcloud' }],
+    icons: [{ src: scanner, alt: 'scanner' }, { src: pointcloud, alt: 'scanToCloud' }],
     copy: 'serviceMeasure',
   }, {
-    icons: [{ src: scanner, alt: 'laser-scanner' }, { src: pointcloud, alt: 'a pointcloud' }, { src: plan, alt: 'a plan' }],
+    icons: [{ src: scanner, alt: 'scanner' }, { src: pointcloud, alt: 'scanToCloud' }, { src: plan, alt: 'scanToPlan' }],
     copy: 'servicePlan',
   }, {
-    icons: [{ src: scanner, alt: 'laser-scanner' }, { src: pointcloud, alt: 'a pointcloud' }, { src: drawing, alt: 'a 3D model' }],
+    icons: [{ src: scanner, alt: 'scanner' }, { src: pointcloud, alt: 'scanToCloud' }, { src: drawing, alt: 'scanToModel' }],
     copy: 'serviceModel',
   }, {
-    icons: [{ src: pointcloud, alt: 'a pointcloud' }, { src: plan, alt: 'a plan' }, { src: drawing, alt: 'a 3D model' }],
+    icons: [{ src: pointcloud, alt: 'scanToCloud' }, { src: plan, alt: 'scanToPlan' }, { src: drawing, alt: 'scanToModel' }],
     copy: 'serviceFull',
   }
 ]

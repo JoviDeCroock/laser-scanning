@@ -10,28 +10,28 @@ import scanModel from '../assets/images/scanModel.jpg'
 const infoBlocks = [
   {
     icon: scanner,
-    alt: '3D laser scanner',
     title: 'threeDScanning',
     paragraphs: [`laserScanner1`, `laserScanner2`],
     image: null,
+    alt: 'scanner',
   }, {
     icon: pointcloud,
     title: "scanToCloud",
     paragraphs: [`pointcloud1`],
     image: scanCloud,
-    alt: 'a scan converted to a pointcloud'
+    alt: 'scanToCloud'
   }, {
     icon: plan,
     title: 'scanToPlan',
     paragraphs: [`plan1`],
     image: scanPlan,
-    alt: 'a scan converted to a plan'
+    alt: 'scanToPlan'
   }, {
     icon: drawing,
     title: 'scanToModel',
     paragraphs: [`model1`],
     image: scanModel,
-    alt: 'a scan converted to a 3D model'
+    alt: 'scanToModel'
   }
 ]
 
