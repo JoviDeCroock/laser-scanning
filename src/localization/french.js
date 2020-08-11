@@ -2,7 +2,7 @@ export default {
   translation: {
     address: 'Adresse',
     scanning: '3D Laser Scanning',
-    getInTouch: 'Contactez-moi',
+    getInTouch: 'Contact',
     phone: 'Téléphone',
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
@@ -13,10 +13,10 @@ export default {
     scanToModel: 'Scan vers modèle',
     siteDescription: "3D Laser Scanning",
     introduction: 'Introduction',
-    introCopy: `EDS Systems BV est une équipe de dessinateurs enthousiastes ayant une grande expérience dans le secteur de la construction.
+    introCopy: `EDS Systems est une équipe de dessinateurs enthousiastes ayant une grande expérience dans le secteur de la construction.
     Ils se sont spécialisés dans les prises de mesures digitales de bâtiments, de monuments, d’installations et d’infrastructures industrielles
     ainsi que dans le traitement de ces données. Ces prises de mesures peuvent se faire avec ou sans l’assistance d’un géomètre.`,
-    service: `EDS Systems BV peut vous proposer les services suivants:`,
+    service: `EDS Systems peut vous proposer les services suivants:`,
     serviceMeasure: `Prises de mesures digitales et traitement vers nuage de points`,
     servicePlan: `Prises de mesures digitales (traitement vers nuage de points inclus) et production d’un plan`,
     serviceModel: `Prises de mesures digitales (traitement vers nuage de points inclus) et production d’un modèle 3D ou BIM`,
