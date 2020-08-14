@@ -23,10 +23,10 @@ const LanguageSelector = ({ language, setLanguage }) => (
     <Option selected={language === 'fr'} onClick={() => setLanguage('fr')}>
       FR
     </Option>
-    &nbsp;|&nbsp;
+    {/* &nbsp;|&nbsp;
     <Option selected={language === 'en'} onClick={() => setLanguage('en')}>
       EN
-    </Option>
+    </Option> */}
   </Wrapper>
 )
 
