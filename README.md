@@ -4,11 +4,10 @@ Deployed at https://elastic-gates-228121.netlify.app/
 
 - [x] Preact
 - [x] PurgeCSS
-- [ ] [Optimize images](https://www.gatsbyjs.org/docs/preoptimizing-images/)
-- [ ] Lazy load images
+- [ ] [Optimize images](https://www.gatsbyjs.org/docs/preoptimizing-images/) (svg)
 - [ ] [Gatsby Images](https://www.gatsbyjs.org/docs/gatsby-image/)
-- [ ] Improve on Modal design (responsiveness)
+- [x] Improve on Modal design (responsiveness)
 - [ ] Translations + Copies
-  - [ ] Dutch
+  - [x] Dutch
   - [ ] English
-  - [ ] French
+  - [x] French

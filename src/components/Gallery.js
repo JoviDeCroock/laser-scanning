@@ -2,28 +2,7 @@ import React from 'react'
 import Lightbox from 'react-images'
 
 const Gallery = ({ images }) => {
-  const ref = React.useRef()
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
-
-  React.useEffect(() => {
-    if (state.lightboxIsOpen !== false) {
-      const handleClickOutside = e => {
-        if (e.target === ref.current || !ref.current.contains(e.target)) {
-          closeLightbox()
-        }
-      }
-  
-      setTimeout(() => {
-        ref.current = document.getElementById('lightboxBackdrop');
-        ref.current.addEventListener('mousedown', handleClickOutside);
-      });
-
-  
-      return () => {
-        ref.current.removeEventListener('mousedown', handleClickOutside);
-      }
-    }
-  }, [state.lightboxIsOpen])
   
   const openLightbox = (i, e) => {
     e.preventDefault()
@@ -77,6 +56,7 @@ const Gallery = ({ images }) => {
                 onClickPrev={gotoPrevious}
                 onClickThumbnail={gotoImage}
                 onClose={closeLightbox}
+                backdropClosesModal
               />
             </React.Fragment>
           ))

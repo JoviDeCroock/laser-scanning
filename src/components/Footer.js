@@ -6,7 +6,7 @@ const Footer = () => (
       <ul className="icons">
         <li>
           <a
-            aria-label="Mail EDS-Systems"
+            aria-label="Mail EDS Systems"
             href="mailto:mark-eds-systems@telenet.be"
             className="icon fa-envelope-o"
           >
@@ -15,7 +15,7 @@ const Footer = () => (
         </li>
       </ul>
       <ul className="copyright">
-        <li>&copy; EDS-Systems</li>
+        <li>&copy; EDS Systems</li>
       </ul>
     </div>
   </div>

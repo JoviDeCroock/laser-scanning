@@ -13,12 +13,12 @@ export default {
     scanToModel: 'Scan to model',
     siteDescription: '3D Laser Scanning',
     introduction: 'Introduction',
-    service: `EDS-Systems can offer you the following services:`,
+    service: `EDS Systems can offer you the following services:`,
     serviceMeasure: `Digital measurement and processing to pointcloud`,
     servicePlan: `Digital measurement (including processing to pointcloud) and processing to plan`,
     serviceModel: `Digital measurement (including processing to pointcloud) and processing to a 3D or BIM model`,
     serviceFull: `Processing the by you delivered pointcloud to plan, 3D or BIM model`,
-    introCopy: `EDS-Systems is een team van gedreven tekenaars met ervaring in de bouw, die zich
+    introCopy: `EDS Systems is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
     industriële installaties en infrastructuur. Deze opmeting kan al dan niet uitgevoerd worden in
     samenwerking met een landmeter.`,
