@@ -5,7 +5,7 @@ module.exports = {
     description: 'Laser scanning',
   },
   plugins: [
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     'gatsby-plugin-hooked-head',
     {
       resolve: `gatsby-plugin-manifest`,
