@@ -6,7 +6,7 @@ const Gallery = ({ images }) => {
   
   const openLightbox = (i, e) => {
     e.preventDefault()
-    setState({ currentImage: 0, lightboxIsOpen: 0 })
+    setState({ currentImage: 0, lightboxIsOpen: i })
   }
 
   const closeLightbox = () => {
