@@ -3,31 +3,9 @@ import Lightbox from 'react-images'
 
 const Gallery = ({ images }) => {
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
-  
-  const openLightbox = (i, e) => {
-    e.preventDefault()
-    setState({ currentImage: 0, lightboxIsOpen: i })
-  }
-
-  const closeLightbox = () => {
-    setState({ currentImage: 0, lightboxIsOpen: false })
-  }
-
-  const gotoPrevious = () => {
-    setState({ ...state, currentImage: state.currentImage - 1 })
-  }
 
   const gotoNext = () => {
     setState({ ...state, currentImage: state.currentImage + 1 })
-  }
-
-  const gotoImage = i => {
-    setState({ ...state, currentImage: i })
-  }
-
-  const handleClickImage = () => {
-    if (state.currentImage === images.length - 1) return
-    gotoNext()
   }
 
   return (
@@ -40,7 +18,10 @@ const Gallery = ({ images }) => {
                 <a
                   className="image fit thumb"
                   href={obj.thumbnail}
-                  onClick={e => { openLightbox(i, e) }}
+                  onClick={e => {
+                    e.preventDefault()
+                    setState({ currentImage: 0, lightboxIsOpen: i })
+                  }}
                 >
                   <img alt="thumbnail" src={obj.thumbnail} />
                 </a>
@@ -51,11 +32,20 @@ const Gallery = ({ images }) => {
                 currentImage={state.currentImage}
                 images={obj.additionalImages}
                 isOpen={state.lightboxIsOpen === i}
-                onClickImage={handleClickImage}
+                onClickImage={() => {
+                  if (state.currentImage === images.length - 1) return
+                  gotoNext()
+                }}
                 onClickNext={gotoNext}
-                onClickPrev={gotoPrevious}
-                onClickThumbnail={gotoImage}
-                onClose={closeLightbox}
+                onClickPrev={() => {
+                  setState({ ...state, currentImage: state.currentImage - 1 })
+                }}
+                onClickThumbnail={i => {
+                  setState({ ...state, currentImage: i })
+                }}
+                onClose={() => {
+                  setState({ currentImage: 0, lightboxIsOpen: false })
+                }}
                 backdropClosesModal
               />
             </React.Fragment>

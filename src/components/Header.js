@@ -14,9 +14,9 @@ const Header = ({ language, setLanguage }) => {
         <h1>
           <strong>EDS Systems</strong>
         </h1>
-        <h3>
+        <h2>
           <strong>Mark Swinnen</strong>
-        </h3>
+        </h2>
         <p style={{ fontSize: '1em' }}>
           {t('scanning')}
         </p>
