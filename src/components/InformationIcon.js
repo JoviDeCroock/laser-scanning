@@ -25,7 +25,7 @@ const ButtonGroup = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 300px;
+  width: auto;
 `
 
 const Button = styled.button`  
