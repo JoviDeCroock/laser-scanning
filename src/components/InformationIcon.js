@@ -35,7 +35,6 @@ const Button = styled.button`
   cursor: pointer;
   height: 50px;
   width: 50px;
-  ${props => props.left ? 'margin-left: 16px' : 'margin-right: 16px'};
 `;
 
 const ImageWrapper = styled.span`
