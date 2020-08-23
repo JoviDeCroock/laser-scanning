@@ -1,5 +1,3 @@
-console.log('process', process.env)
-
 module.exports = {
   siteMetadata: {
     title: 'EDS Systems',
@@ -33,6 +31,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        defer: true,
       },
     },
     'gatsby-plugin-offline',
