@@ -1,3 +1,5 @@
+console.log('process', process.env)
+
 module.exports = {
   siteMetadata: {
     title: 'EDS Systems',
@@ -24,9 +26,14 @@ module.exports = {
     { 
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
-        // develop: true, // Enable while using `gatsby develop`
+        printRejected: true,
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
     },
     'gatsby-plugin-offline',
   ],
