@@ -110,18 +110,18 @@ const IconWrapper = ({
         icon={{ src, alt: t(alt) }}
         footer={
           <ButtonGroup>
-            {prev ? (
+            {prev && (
               <ButtonWrapper>
                 <Logo src={prevLogo} alt={t(prevLogoAlt)} onClick={prev} />
                 <Button className="icon fa-arrow-left" onClick={prev} />
               </ButtonWrapper>
-            ) : <Invisible aria-hidden="true" />}
-            {next ? (
+            )}
+            {next && (
               <ButtonWrapper>
                 <Button className="icon fa-arrow-right" onClick={next} />
                 <Logo src={nextLogo} alt={t(nextLogoAlt)} onClick={next} />
               </ButtonWrapper>
-            ) : <Invisible aria-hidden="true" />}
+            )}
           </ButtonGroup>
         }
       >
