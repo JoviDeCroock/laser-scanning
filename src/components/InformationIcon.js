@@ -22,10 +22,10 @@ const Image = styled.img`
 `
 
 const ButtonGroup = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: auto;
+  grid-template-columns: 100px 100px;
+  grid-gap: 24px;
+  display: grid;
+  with: 300px;
 `
 
 const Button = styled.button`  
@@ -33,9 +33,9 @@ const Button = styled.button`
   border: none;
   border-radius: 100%;
   cursor: pointer;
-  height: auto;
-  width: auto;
-  margin-left: 16px;
+  height: 50px;
+  width: 50px;
+  ${props => props.left ? 'margin-left: 16px' : 'margin-right: 16px'};
 `;
 
 const ImageWrapper = styled.span`
@@ -65,8 +65,8 @@ const SubText = styled.p`
 `;
 
 const ButtonWrapper = styled.span`
+  align-items: center;
   display: flex;
-  width: 50%;
 `;
 
 const Logo = styled.img`
@@ -76,8 +76,6 @@ const Logo = styled.img`
 `;
 
 const Invisible = styled.span`
-  height: 50px;
-  width: 50%;
   visibility: hidden;
 `;
 
@@ -110,18 +108,18 @@ const IconWrapper = ({
         icon={{ src, alt: t(alt) }}
         footer={
           <ButtonGroup>
-            {prev && (
+            {prev ? (
               <ButtonWrapper>
                 <Logo src={prevLogo} alt={t(prevLogoAlt)} onClick={prev} />
-                <Button className="icon fa-arrow-left" onClick={prev} />
+                <Button className="icon fa-arrow-left" left onClick={prev} />
               </ButtonWrapper>
-            )}
-            {next && (
+            ) : <Invisible aria-hidden="true"  />}
+            {next ? (
               <ButtonWrapper>
                 <Button className="icon fa-arrow-right" onClick={next} />
-                <Logo src={nextLogo} alt={t(nextLogoAlt)} onClick={next} />
+                <Logo src={nextLogo} alt={t(nextLogoAlt)} left={false} onClick={next} />
               </ButtonWrapper>
-            )}
+            ) : <Invisible aria-hidden="true"  />}
           </ButtonGroup>
         }
       >
