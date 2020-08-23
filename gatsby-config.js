@@ -8,6 +8,18 @@ module.exports = {
     `gatsby-plugin-preact`,
     'gatsby-plugin-hooked-head',
     {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'eds-systems',
+        accessToken: 'MC5YMEx1b1JBQUFDVUFDN2pO.77-977-977-977-977-977-9Ie-_ve-_ve-_ve-_vSHvv73vv73vv73vv73vv73vv73vv73vv73vv71O77-977-9C--_vXtuFe-_ve-_ve-_vQ',
+        schemas: {
+          project: require('./src/schemas/project.json'),
+        },
+      },
+    },
+    // `gatsby-transformer-sharp`,
+    // `gatsby-plugin-sharp`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'EDS Systems',
