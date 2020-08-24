@@ -47,7 +47,8 @@ const Gallery = ({ images, language }) => {
       query={query}
       render={data => {
         const currentLanguage = language === 'nl' ? 'nl-be' : 'fr-be';
-        const nodes = data.projects.nodes.filter(n => n.lang === currentLanguage);
+        const nodes = data.projects.nodes.filter(n => n.lang === currentLanguage).sort((a, b) => Number(a.data.year.text) - Number(b.data.year.text));
+
         return (
           <div>
             <div className="row">
