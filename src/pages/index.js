@@ -30,7 +30,7 @@ const HomeIndex = () => {
       <div id="main">
         <Introduction />
         <ThreeDInformation />
-        <Projects />
+        <Projects language={language} />
         <Contact />
       </div>
     </Layout>

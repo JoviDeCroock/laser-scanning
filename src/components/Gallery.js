@@ -5,38 +5,37 @@ import Lightbox from 'react-images'
 const query = graphql`
 query projects {
   projects: allPrismicProject {
-    edges {
-      node {
+      nodes {
         data {
           body {
-            ... on PrismicProjectBodyListOfArticles {
+            ... on PrismicProjectBodySlideshow {
               id
-              primary {
-                picture {
-                  url
+              items {
+                image {
                   alt
+                  url
                 }
               }
             }
           }
           title {
-            raw
+            text
           }
           year {
-            raw
+            text
           }
           thumbnail {
             url
             alt
           }
         }
+        lang
       }
-    }
   }
 }
 `
 
-const Gallery = ({ images }) => {
+const Gallery = ({ images, language }) => {
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
 
   const gotoNext = () => {
@@ -46,52 +45,56 @@ const Gallery = ({ images }) => {
   return (
     <StaticQuery
       query={query}
-      render={data => console.log('data', data) || (
-        <div>
-          <div className="row">
-            {images ? (
-              images.map((obj, i) => (
-                <React.Fragment key={i}>
-                  <article className="6u 12u$(xsmall) work-item" key={i}>
-                    <a
-                      className="image fit thumb"
-                      href={obj.thumbnail}
-                      onClick={e => {
-                        e.preventDefault()
-                        setState({ currentImage: 0, lightboxIsOpen: i })
+      render={data => {
+        const currentLanguage = language === 'nl' ? 'nl-be' : 'fr-be';
+        const nodes = data.projects.nodes.filter(n => n.lang === currentLanguage);
+        return (
+          <div>
+            <div className="row">
+              {nodes ? (
+                nodes.map(({ data: node }, i) => console.log(node) || (
+                  <React.Fragment key={i}>
+                    <article className="6u 12u$(xsmall) work-item" key={i}>
+                      <a
+                        className="image fit thumb"
+                        href={node.thumbnail.url}
+                        onClick={e => {
+                          e.preventDefault()
+                          setState({ currentImage: 0, lightboxIsOpen: i })
+                        }}
+                      >
+                        <img alt="thumbnail" src={node.thumbnail.url} />
+                      </a>
+                      <h3>{node.title.text}</h3>
+                      <p>{node.year.text}</p>
+                    </article>
+                    <Lightbox
+                      currentImage={state.currentImage}
+                      images={node.body[0].items.map(({ image }) => ({ src: image.url, alt: image.alt }))}
+                      isOpen={state.lightboxIsOpen === i}
+                      onClickImage={() => {
+                        if (state.currentImage === images.length - 1) return
+                        gotoNext()
                       }}
-                    >
-                      <img alt="thumbnail" src={obj.thumbnail} />
-                    </a>
-                    <h3>{obj.caption}</h3>
-                    <p>{obj.description}</p>
-                  </article>
-                  <Lightbox
-                    currentImage={state.currentImage}
-                    images={obj.additionalImages}
-                    isOpen={state.lightboxIsOpen === i}
-                    onClickImage={() => {
-                      if (state.currentImage === images.length - 1) return
-                      gotoNext()
-                    }}
-                    onClickNext={gotoNext}
-                    onClickPrev={() => {
-                      setState({ ...state, currentImage: state.currentImage - 1 })
-                    }}
-                    onClickThumbnail={i => {
-                      setState({ ...state, currentImage: i })
-                    }}
-                    onClose={() => {
-                      setState({ currentImage: 0, lightboxIsOpen: false })
-                    }}
-                    backdropClosesModal
-                  />
-                </React.Fragment>
-              ))
-            ) : <React.Fragment />}
+                      onClickNext={gotoNext}
+                      onClickPrev={() => {
+                        setState({ ...state, currentImage: state.currentImage - 1 })
+                      }}
+                      onClickThumbnail={i => {
+                        setState({ ...state, currentImage: i })
+                      }}
+                      onClose={() => {
+                        setState({ currentImage: 0, lightboxIsOpen: false })
+                      }}
+                      backdropClosesModal
+                    />
+                  </React.Fragment>
+                ))
+              ) : <React.Fragment />}
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }}
     />
   )
 }
