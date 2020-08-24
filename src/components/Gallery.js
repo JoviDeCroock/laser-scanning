@@ -52,7 +52,7 @@ const Gallery = ({ images, language }) => {
           <div>
             <div className="row">
               {nodes ? (
-                nodes.map(({ data: node }, i) => console.log(node) || (
+                nodes.map(({ data: node }, i) => (
                   <React.Fragment key={i}>
                     <article className="6u 12u$(xsmall) work-item" key={i}>
                       <a
