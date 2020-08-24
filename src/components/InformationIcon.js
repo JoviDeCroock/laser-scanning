@@ -9,6 +9,7 @@ const Image = styled.img`
   height: 80%;
   border: 1px solid transparent;
   border-radius: 100%;
+  filter: drop-shadow(2px 4px 6px black);
 
   &:hover {
     transition: all .33s ease-in-out;
@@ -28,7 +29,7 @@ const ButtonGroup = styled.div`
   with: 300px;
 `
 
-const Button = styled.button`  
+const Button = styled.button`
   background-color: white;
   border: none;
   border-radius: 100%;
@@ -79,7 +80,7 @@ const Invisible = styled.span`
 `;
 
 const IconWrapper = ({
-  src, 
+  src,
   alt,
   title,
   children,
