@@ -8,6 +8,18 @@ module.exports = {
     `gatsby-plugin-preact`,
     'gatsby-plugin-hooked-head',
     {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: process.env.PRISMIC_REPOSITORY,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        schemas: {
+          project: require('./src/schemas/project.json'),
+        },
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'EDS Systems',
