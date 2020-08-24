@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import projects from '../constants/projects'
 import Gallery from '../components/Gallery'
 
 const Projects = ({ language }) => {
@@ -9,7 +8,7 @@ const Projects = ({ language }) => {
   return (
     <section id="three">
       <h2>{t('projects')}</h2>
-      <Gallery images={projects} language={language} />
+      <Gallery language={language} />
     </section>
   )
 }
