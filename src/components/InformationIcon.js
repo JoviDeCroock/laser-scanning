@@ -9,7 +9,7 @@ const Image = styled.img`
   height: 80%;
   border: 1px solid transparent;
   border-radius: 100%;
-  filter: drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(2px 4px 6px #787878);
 
   &:hover {
     transition: all .33s ease-in-out;
