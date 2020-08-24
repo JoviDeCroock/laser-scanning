@@ -10,15 +10,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'eds-systems',
-        accessToken: 'MC5YMEx1b1JBQUFDVUFDN2pO.77-977-977-977-977-977-9Ie-_ve-_ve-_ve-_vSHvv73vv73vv73vv73vv73vv73vv73vv73vv71O77-977-9C--_vXtuFe-_ve-_ve-_vQ',
+        repositoryName: process.env.PRISMIC_REPOSITORY,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         schemas: {
           project: require('./src/schemas/project.json'),
         },
       },
     },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

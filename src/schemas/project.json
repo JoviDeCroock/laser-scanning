@@ -1,49 +1,55 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "title"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "title"
       }
     },
-    "year" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "year"
+    "year": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "year"
       }
     },
-    "thumbnail" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "thumbnail"
+    "thumbnail": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 400,
+          "height": 400
+        },
+        "thumbnails": [],
+        "label": "thumbnail"
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : { },
-        "choices" : {
-          "list_of_articles" : {
-            "type" : "Slice",
-            "fieldset" : "List of Articles",
-            "description" : "Section title and article list",
-            "icon" : "photo_filter",
-            "non-repeat" : {
-              "picture" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "picture"
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "slideshow": []
+        },
+        "choices": {
+          "slideshow": {
+            "type": "Slice",
+            "fieldset": "slideshow",
+            "description": "a set of images",
+            "icon": "face",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
                 }
               }
-            },
-            "repeat" : { }
+            }
           }
         }
       }
