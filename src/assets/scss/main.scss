@@ -688,11 +688,12 @@
 			li {
 				line-height: 1.75em;
 				margin: 1.5em 0 0 0;
-				padding-left: 2.5em;
+				padding-left: 1.5em;
 				position: relative;
+				display: flex;
 
 				@media (min-width: 768px) {
-					padding-left: 2.25em;
+					padding-left: 2.5em;
 				}
 
 				&:first-child {
@@ -705,14 +706,9 @@
 
 				h3 {
 					color: _palette(fg-light);
-					left: 10px;
-					position: absolute;
 					text-align: center;
-					top: 0;
+					margin-right: 1em;
 					width: 1em;
-					@media (min-width: 768px) {
-						left: 0;
-					}
 				}
 			}
 		}
@@ -1369,7 +1365,7 @@
 			ul {
 				&.labeled-icons {
 					li {
-						padding-left: 2em;
+						padding-left: 1.5em;
 
 						h3 {
 							line-height: 1.75em;
