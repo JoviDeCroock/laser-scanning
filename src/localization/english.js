@@ -18,16 +18,13 @@ export default {
     servicePlan: `Digital measurement (including processing to pointcloud) and processing to plan`,
     serviceModel: `Digital measurement (including processing to pointcloud) and processing to a 3D or BIM model`,
     serviceFull: `Processing the by you delivered pointcloud to plan, 3D or BIM model`,
-    introCopy: `EDS Systems is een team van gedreven tekenaars met ervaring in de bouw, die zich
-    toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
-    industriële installaties en infrastructuur. Deze opmeting kan al dan niet uitgevoerd worden in
-    samenwerking met een landmeter.`,
-    laserScanner1: `3D laserscanning is een techniek waarbij op zeer korte tijd bestaande situaties uiterste precies en in
-    drie dimensies opgemeten worden. De laserscanner verricht niet enkel gedetailleerde metingen, maar
-    kan tevens panoramische beelden vastleggen. Hierdoor is deze techniek uiterst geschikt om de
-    complexiteit van een project te beheren aan de hand van exacte en betrouwbare 3D-voorstellingen van
-    de bestaande situatie (As-built). De opmeting vormt een geschikte basis voor nauwkeurige plannen en
-    modellen.`,
+    introCopy: `EDS Systems is a team of passionate designers with a lot of experience in construction, they specialise in 
+    digital measurement and processing of buildings, monuments, industrial installations and infrastructure. 
+    This measurement could be performed together with a surveyor.`,
+    laserScanner1: `3D laserscanning is a technique that allows us to measure buildings, ... in 3D and in a very short amount of time. 
+    The scanner does not only perform detailed measurements, but it also makes panoramic images. That's why this technique is suited 
+    for the complexity of managing a project with an exact and reliable 3D representation of the current situation. 
+    The measurement is a suitable base for precise drawings and models.`,
     laserScanner2: `3D laserscanning kan toegepast worden voor opmetingen van gebouwen, monumenten, industriële
     installaties, infrastructuur, en zoveel meer. Dit zowel voor de constructie voor een snelle en correcte
     opmeting van de huidige situatie met een lage foutmarge en realistische panoramische beelden;
