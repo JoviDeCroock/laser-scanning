@@ -29,7 +29,7 @@ export default {
     This can be throughout the process of a building, before construction for a fast and correct measurement of the current situation with a low margin of error and realistic panoramic images;
     during the construction for as-built-, drainage- and contructionplans; and after the construction for as-built and control plans.`,
     pointcloud1: `Every point measured by the 3D scanner, is defined by a highly accurate x, y, z coordinate.
-    All these points together form the pointcloud which will reflect the current situationn accurately.
+    All these points together form the pointcloud which will reflect the current situation accurately.
     This pointcloud forms the ideal base for processing them to detailed plans and models.
     The addition of panoramic images makes it possible for the user to get a better view of the scanned situation.
     This leads to a strong reduction in site visits and is a visual aid for consultation.`,
