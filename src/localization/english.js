@@ -9,7 +9,7 @@ export default {
     threeDScanning: '3D Laser Scanning',
     scanner: '3D laser scanner',
     scanToPlan: 'Scan to plan',
-    scanToCloud: 'Scan to pontcloud',
+    scanToCloud: 'Scan to pointcloud',
     scanToModel: 'Scan to model',
     siteDescription: '3D Laser Scanning',
     introduction: 'Introduction',
@@ -33,8 +33,8 @@ export default {
     This pointcloud forms the ideal base for processing them to detailed plans and models.
     The addition of panoramic images makes it possible for the user to get a better view of the scanned situation.
     This leads to a strong reduction in site visits and is a visual aid for consultation.`,
-    plan1: `The acquired pointcloud will serve as a base for the creation of the siting plans, ground plans, detail plans, vertical intersections and facade views.
-    the grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
+    plan1: `The acquired pointcloud will serve as a base for the creation of the siting plans, ground plans, detail plans, vertical sections and facade views.
+    The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
     model1: `The acquired pointcloud will serve as a base for the creation of our three dimensional models
     and visualizations. The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`
   },
