@@ -28,13 +28,11 @@ export default {
     laserScanner2: `3D laserscanning can be applied for measuring buildings, monuments, industrial installations, infrastructure and so much more.
     This can be throughout the process of a building, before construction for a fast and correct measurement of the current situation with a low margin of error and realistic panoramic images;
     during the construction for as-built-, drainage- and contructionplans; and after the construction for as-built and control plans.`,
-    pointcloud1: `Elk punt dat opgemeten wordt door de 3D laserscanner, wordt gedefinieerd door een uiterst
-    nauwkeurige x-, y-, z-positie. Al deze punten samen vormen een puntenwolk die de huidige
-    situatie nauwgezet weergeven. Deze puntenwolk vormt de geschikte basis voor de verwerking
-    tot gedetailleerde plannen en modellen.
-    De toevoeging van panoramische beelden maakt het mogelijk voor de gebruiker om een beter
-    inzicht te verkrijgen in de gescande situatie. Dit leidt tot een sterke vermindering van het aantal
-    plaats bezoeken en is tevens een handig visueel hulpmiddel bij overleg.`,
+    pointcloud1: `Every point measured by the 3D scanner, is defined by a highly accurate x, y, z coordinate.
+    All these points together form the pointcloud which will reflect the current situationn accurately.
+    This pointcloud forms the ideal base for processing them to detailed plans and models.
+    The addition of panoramic images makes it possible for the user to get a better view of the scanned situation.
+    This leads to a strong reduction in site visits and is a visual aid for consultation.`,
     plan1: `The acquired pointcloud will serve as a base for the creation of the siting plans, ground plans, detail plans, vertical intersections and facade views.
     the grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
     model1: `The acquired pointcloud will serve as a base for the creation of our three dimensional models
