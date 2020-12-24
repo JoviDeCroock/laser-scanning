@@ -46,7 +46,7 @@ const Gallery = ({ images, language }) => {
     <StaticQuery
       query={query}
       render={data => {
-        const currentLanguage = language === 'nl' ? 'nl-be' : language === 'en-gb' ? '' : 'fr-be';
+        const currentLanguage = language === 'nl' ? 'nl-be' : language === 'en' ? 'en-gb' : 'fr-be';
         const nodes = data.projects.nodes
           .filter(n => n.lang === currentLanguage)
           .sort((a, b) => {
