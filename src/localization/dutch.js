@@ -1,6 +1,7 @@
 export default {
   translation: {
     address: 'Adres',
+    unsubscribe: 'Uitschrijven',
     scanning: '3D Laser Scanning',
     getInTouch: 'Neem contact op',
     phone: 'Telefoon',
