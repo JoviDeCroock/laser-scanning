@@ -18,6 +18,7 @@ const HomeIndex = () => {
   useLang(language);
   useTitle('EDS Systems');
   useMeta({ name: 'description', content: t('siteDescription') });
+  useMeta({ name: 'robots', content: 'all' })
 
   React.useEffect(() => {
     if (prevLanguage.current !== language) {

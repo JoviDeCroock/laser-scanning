@@ -33,6 +33,7 @@ const UnsubscribeForm = () => {
   useLang(language);
   useTitle('EDS Systems');
   useMeta({ name: 'description', content: t('siteDescription') });
+  useMeta({ name: 'robots', content: 'noindex' })
 
   React.useEffect(() => {
     if (prevLanguage.current !== language) {
