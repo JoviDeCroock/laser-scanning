@@ -1,6 +1,9 @@
 export default {
   translation: {
+    sending: 'Bezig met sturen',
+    somethingWentWrong: 'Er ging iets mis, probeer later opnieuw.',
     address: 'Adres',
+    unsubscribe: 'Uitschrijven',
     scanning: '3D Laser Scanning',
     getInTouch: 'Neem contact op',
     phone: 'Telefoon',

@@ -1,6 +1,9 @@
 export default {
   translation: {
+    sending: 'Chargement',
+    somethingWentWrong: "Une erreur s'est produite, réessayez plus tard.",
     address: 'Adresse',
+    unsubscribe: 'Unsubscribe',
     scanning: '3D Laser Scanning',
     getInTouch: 'Contact',
     phone: 'Téléphone',

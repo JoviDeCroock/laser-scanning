@@ -1,0 +1,12 @@
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[build]
+  command = "yarn run build"
+  functions = "functions"
+  publish = "public"
+
+[dev]
+  framework = "gatsby"
