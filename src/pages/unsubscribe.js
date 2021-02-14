@@ -22,7 +22,7 @@ const UnsubscribeForm = () => {
   const initialEmailValue = useQueryParam('email', '')
 
   const [error, setError] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const [email, setEmail] = React.useState(initialEmailValue);
   const [language, setLanguage] = React.useState('nl')
 
