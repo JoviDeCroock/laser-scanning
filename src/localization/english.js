@@ -1,5 +1,6 @@
 export default {
   translation: {
+    somethingWentWrong: 'Something went wrong, try again later.',
     address: 'Address',
     unsubscribe: 'Unsubscribe',
     scanning: '3D Laser Scanning',

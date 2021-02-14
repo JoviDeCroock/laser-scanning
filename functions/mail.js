@@ -12,8 +12,8 @@ exports.handler = function handler(event, _context, callback) {
   if (event.httpMethod === 'POST' && typeof event.body === 'string') {
     const postBody = JSON.parse(event.body);
     const options = {
-      from: process.env.ORDER_EMAIL,
-      to: process.env.ORDER_DESTINATION,
+      from: process.env.EMAIL_SENDER,
+      to: process.env.EMAIL_DESTINATION,
       subject: `Uitschrijven - ${postBody.email}`,
       text: `${postBody.email} wil uitschrijven van de mailing-lijst.`,
     }
@@ -21,7 +21,7 @@ exports.handler = function handler(event, _context, callback) {
     transporter.sendMail(options, function (error, info) {
       if (error) {
         console.log('Email error: ', error)
-        callback(null, { statusCode: 200 });
+        callback(null, { statusCode: 500 });
       } else {
         console.log('Email sent: ' + info.response)
         callback(null, { statusCode: 200 });

@@ -21,6 +21,8 @@ const Button = styled.button`
 const UnsubscribeForm = () => {
   const initialEmailValue = useQueryParam('email', '')
 
+  const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const [email, setEmail] = React.useState(initialEmailValue);
   const [language, setLanguage] = React.useState('nl')
 
@@ -42,15 +44,18 @@ const UnsubscribeForm = () => {
     e.preventDefault();
     e.stopPropagation();
 
+    setLoading(true);
+    setError(null);
+
     fetch('/.netlify/functions/mail', {
       method: 'POST',
       body: JSON.stringify({
         email
       }),
     }).then(function (res) {
+      setLoading(false);
       if (!res.ok) {
-        console.error(res);
-        return;
+        setError(t('somethingWentWrong'));
       } else {
         navigate('/')
         return;
@@ -65,6 +70,8 @@ const UnsubscribeForm = () => {
           <label htmlFor="email">Email</label>
           <input id="email" value={email} onInput={e => setEmail(e.currentTarget.value)} type="email" />
           <Button type="Submit">{t('unsubscribe')}</Button>
+          {loading && <p>Sending...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
       </div>
     </Layout>
