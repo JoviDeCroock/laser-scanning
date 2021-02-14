@@ -2,6 +2,7 @@ import React from 'react'
 import { useLang, useTitle, useMeta } from 'hooked-head'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import { navigate } from "gatsby"
 
 import '../localization/i18n'
 import Layout from '../components/layout'
@@ -11,9 +12,10 @@ const Button = styled.button`
   cursor: pointer;
   width: auto;
   height: 80%;
-  border: 1px solid transparent;
-  border-radius: 100%;
-  filter: drop-shadow(2px 4px 6px #787878);
+  margin-top: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background: transparent;
 `
 
 const UnsubscribeForm = () => {
@@ -40,7 +42,20 @@ const UnsubscribeForm = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Fetch to a netlify function
+    fetch('/.netlify/functions/mail', {
+      method: 'POST',
+      body: JSON.stringify({
+        email
+      }),
+    }).then(function (res) {
+      if (!res.ok) {
+        console.error(res);
+        return;
+      } else {
+        navigate('/')
+        return;
+      }
+    })
   }
 
   return (
