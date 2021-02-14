@@ -1,5 +1,6 @@
 export default {
   translation: {
+    sending: 'Sending',
     somethingWentWrong: 'Something went wrong, try again later.',
     address: 'Address',
     unsubscribe: 'Unsubscribe',
