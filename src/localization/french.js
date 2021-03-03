@@ -1,5 +1,6 @@
 export default {
   translation: {
+    mandatory: 'obligatoire',
     sending: 'Chargement',
     somethingWentWrong: "Une erreur s'est produite, réessayez plus tard.",
     address: 'Adresse',

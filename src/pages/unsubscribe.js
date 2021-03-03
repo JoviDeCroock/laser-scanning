@@ -67,7 +67,7 @@ const UnsubscribeForm = () => {
     <Layout language={language} setLanguage={setLanguage}>
       <div id="main">
         <form onSubmit={unsubscribe}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email* ({t('mandatory')})</label>
           <input id="email" value={email} onInput={e => setEmail(e.currentTarget.value)} type="email" />
           <Button disabled={!email} type="Submit">{t('unsubscribe')}</Button>
           {loading && <p>{t('sending')}...</p>}

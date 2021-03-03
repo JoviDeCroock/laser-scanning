@@ -1,5 +1,6 @@
 export default {
   translation: {
+    mandatory: 'verplicht',
     sending: 'Bezig met sturen',
     somethingWentWrong: 'Er ging iets mis, probeer later opnieuw.',
     address: 'Adres',
