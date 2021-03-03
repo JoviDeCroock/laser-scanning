@@ -69,7 +69,7 @@ const UnsubscribeForm = () => {
         <form onSubmit={unsubscribe}>
           <label htmlFor="email">Email</label>
           <input id="email" value={email} onInput={e => setEmail(e.currentTarget.value)} type="email" />
-          <Button type="Submit">{t('unsubscribe')}</Button>
+          <Button disabled={!email} type="Submit">{t('unsubscribe')}</Button>
           {loading && <p>{t('sending')}...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
