@@ -18,7 +18,9 @@ const HomeIndex = () => {
   useLang(language);
   useTitle('EDS Systems - laser scanning');
   useMeta({ name: 'description', content: t('siteDescription') });
-  useMeta({ name: 'robots', content: 'all' })
+  useMeta({ property: 'og:title', content: 'EDS Systems - laser scanning' });
+  useMeta({ name: 'robots', content: 'index, follow' });
+  useMeta({ name: 'keywords', content: '3D laserscanning bim' })
 
   React.useEffect(() => {
     if (prevLanguage.current !== language) {
