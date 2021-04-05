@@ -2,6 +2,7 @@ import React from 'react'
 import { useLang, useTitle, useMeta } from 'hooked-head'
 import { useTranslation } from 'react-i18next'
 
+import avatar from '../assets/images/website-icon.png'
 import '../localization/i18n'
 import Layout from '../components/layout'
 
@@ -19,6 +20,8 @@ const HomeIndex = () => {
   useTitle('EDS Systems - laser scanning');
   useMeta({ name: 'description', content: t('siteDescription') });
   useMeta({ property: 'og:title', content: 'EDS Systems - laser scanning' });
+  useMeta({ property: 'og:image', content: avatar });
+  useMeta({ name: 'twitter:card', content: 'summary' });
   useMeta({ name: 'robots', content: 'index, follow' });
   useMeta({ name: 'keywords', content: '3D laserscanning bim' })
 
