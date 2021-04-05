@@ -16,7 +16,7 @@ const HomeIndex = () => {
   const { t, i18n } = useTranslation()
 
   useLang(language);
-  useTitle('EDS Systems');
+  useTitle('EDS Systems - laser scanning');
   useMeta({ name: 'description', content: t('siteDescription') });
   useMeta({ name: 'robots', content: 'all' })
 
