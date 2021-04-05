@@ -15,7 +15,7 @@ export default {
     scanToPlan: 'Scan tot plan',
     scanToCloud: 'Scan tot puntenwolk',
     scanToModel: 'Scan tot model',
-    siteDescription: '3D Laser Scanning',
+    siteDescription: '3D Laser Scanning, digitale opmeting & verwerking. Vind hier meer informatie over onze diensten',
     introduction: 'Introductie',
     introCopy: `EDS Systems is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
