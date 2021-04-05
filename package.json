@@ -34,7 +34,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "postbuild": "mv ./src/assets/images/website-icon.png ./dist/website-icon.png",
+    "postbuild": "mv ./src/assets/images/website-icon.png ./public/website-icon.png",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'"
   },
