@@ -19,8 +19,10 @@ const HomeIndex = () => {
   useLang(language);
   useTitle('EDS Systems - laser scanning');
   useMeta({ name: 'description', content: t('siteDescription') });
+  useMeta({ property: 'og:description', content: t('siteDescription') });
   useMeta({ property: 'og:title', content: 'EDS Systems - laser scanning' });
-  useMeta({ property: 'og:image', content: avatar });
+  useMeta({ property: 'og:type', content: 'website' });
+  useMeta({ property: 'og:image', content: 'https://eds-systems.be/website-icon.png' });
   useMeta({ name: 'twitter:card', content: 'summary' });
   useMeta({ name: 'robots', content: 'index, follow' });
   useMeta({ name: 'keywords', content: '3D laserscanning bim' })
