@@ -5,10 +5,13 @@ module.exports = {
     title: 'EDS Systems',
     author: 'Jovi De Croock',
     description: 'Laser scanning',
+    siteUrl: `https://eds-systems.be/`,
   },
   plugins: [
     `gatsby-plugin-preact`,
     'gatsby-plugin-hooked-head',
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: 'gatsby-source-prismic',
       options: {
