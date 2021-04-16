@@ -2,7 +2,6 @@ import React from 'react'
 import { useLang, useTitle, useMeta } from 'hooked-head'
 import { useTranslation } from 'react-i18next'
 
-import avatar from '../assets/images/website-icon.png'
 import '../localization/i18n'
 import Layout from '../components/layout'
 

@@ -1,31 +1,27 @@
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail')
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_SENDER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-})
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 exports.handler = function handler(event, _context, callback) {
   if (event.httpMethod === 'POST' && typeof event.body === 'string') {
     const postBody = JSON.parse(event.body);
-    const options = {
-      from: process.env.EMAIL_SENDER,
-      to: process.env.EMAIL_DESTINATION,
+
+    const msg = {
+      to: process.env.EMAIL_DESTINATION, // Change to your recipient
+      from: process.env.EMAIL_DESTINATION, // Change to your verified sender
       subject: `Uitschrijven - ${postBody.email}`,
       text: `${postBody.email} wil uitschrijven van de mailing-lijst.`,
-    }
+    };
 
-    transporter.sendMail(options, function (error, info) {
-      if (error) {
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log('Email sent');
+        callback(null, { statusCode: 200 });
+      })
+      .catch((error) => {
         console.log('Email error: ', error)
         callback(null, { statusCode: 500 });
-      } else {
-        console.log('Email sent: ' + info.response)
-        callback(null, { statusCode: 200 });
-      }
-    })
+      })
   }
 }
