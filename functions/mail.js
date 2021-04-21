@@ -7,10 +7,10 @@ exports.handler = function handler(event, _context, callback) {
     const postBody = JSON.parse(event.body);
 
     const msg = {
-      to: process.env.EMAIL_DESTINATION, // Change to your recipient
-      from: process.env.EMAIL_DESTINATION, // Change to your verified sender
-      subject: `Uitschrijven - ${postBody.email}`,
-      text: `${postBody.email} wil uitschrijven van de mailing-lijst.`,
+      to: process.env.EMAIL_DESTINATION,
+      from: process.env.EMAIL_SENDER,
+      subject: `Uitschrijven nieuwsbrief - ${postBody.email}`,
+      text: `${postBody.email} wil uitschrijven van de mailing-lijst omtrend laser-scanning.`,
     };
 
     sgMail
