@@ -10,7 +10,7 @@ exports.handler = function handler(event, _context, callback) {
       to: process.env.EMAIL_DESTINATION,
       from: process.env.EMAIL_SENDER,
       subject: `Uitschrijven nieuwsbrief - ${postBody.email}`,
-      text: `${postBody.email} wil uitschrijven van de mailing-lijst omtrend laser-scanning.`,
+      text: `${postBody.email} wil uitschrijven van de mailing-lijst met betrekking tot laser-scanning.`,
     };
 
     sgMail
