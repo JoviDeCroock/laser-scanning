@@ -1,9 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import Footer from './Footer'
 import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
+
+const ContactLink = styled.a`
+  border: 0;
+  color: rgb(232, 230, 227);
+  cursor: pointer;
+  text-decoration: none;
+  width: unset !important;
+`;
 
 const Header = ({ language, setLanguage }) => {
   const { t } = useTranslation()
@@ -22,6 +31,7 @@ const Header = ({ language, setLanguage }) => {
         </p>
         <LanguageSelector language={language} setLanguage={setLanguage} />
       </div>
+      <ContactLink href="#four">Contact</ContactLink>
       <Footer />
     </header>
   )
