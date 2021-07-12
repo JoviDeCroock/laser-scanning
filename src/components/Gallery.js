@@ -6,6 +6,7 @@ const query = graphql`
 query projects {
   projects: allPrismicProject {
       nodes {
+        createdAt: first_publication_date
         data {
           body {
             ... on PrismicProjectBodySlideshow {
@@ -49,7 +50,15 @@ const Gallery = ({ images, language }) => {
         const currentLanguage = language === 'nl' ? 'nl-be' : language === 'en' ? 'en-gb' : 'fr-be';
         const nodes = data.projects.nodes
           .filter(n => n.lang === currentLanguage)
-          .sort((a, b) => Number(b.data.year.text) - Number(a.data.year.text));
+          .sort((a, b) => {
+            const bYear = Number(b.data.year.text);
+            const aYear = Number(a.data.year.text)
+            if (bYear !== aYear) {
+              return bYear - aYear;
+            }
+
+            return +new Date(b.createdAt) - +new Date(a.createdAt)
+          });
         return (
           <div>
             <div className="row">
