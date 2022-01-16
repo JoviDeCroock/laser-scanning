@@ -44,13 +44,6 @@ module.exports = {
         printRejected: true,
       }
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-        defer: true,
-      },
-    },
     'gatsby-plugin-offline',
   ],
 }
