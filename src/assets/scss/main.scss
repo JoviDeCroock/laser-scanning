@@ -479,7 +479,6 @@
 				font-weight: _font(weight-bold);
 				left: 50%;
 				line-height: 2.25em;
-				margin: -1.25em 0 0 -3em;
 				opacity: 0;
 				padding: 0 1.5em;
 				position: absolute;
@@ -883,18 +882,19 @@
 		margin: 0 0 _size(element-margin) 0;
 
 		.image {
-			margin: 0 0 (_size(element-margin) * 0.75) 0;
+			margin: 0 0 (_size(element-margin) * 0.25) 0;
 		}
 
 		h3 {
 			font-size: 1em;
-			margin: 0 0 (_size(element-margin) * 0.25) 0;
+			margin: 0 0 (_size(element-margin) * 0.1) 0;
 		}
 
 		p {
 			font-size: 0.8em;
 			line-height: 1.5em;
 			margin: 0;
+			height: 1em;
 		}
 	}
 

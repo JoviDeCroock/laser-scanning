@@ -62,6 +62,7 @@ const Gallery = ({ images, language }) => {
 
             return +new Date(b.createdAt) - +new Date(a.createdAt)
           });
+
         return (
           <div>
             <div className="row">
@@ -79,8 +80,8 @@ const Gallery = ({ images, language }) => {
                       >
                         <img alt="thumbnail" src={node.thumbnail.url} />
                       </a>
-                      <h3>{node.title.text}</h3>
-                      <p>{node.year.text}</p>
+                      <h3>{node.title.text} - {node.year.text}</h3>
+                      <p>{node.technologies.text || ''}</p>
                     </article>
                     <Lightbox
                       currentImage={state.currentImage}
