@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-preact`,
-    'gatsby-plugin-hooked-head',
+    'gatsby-plugin-hoofd',
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {

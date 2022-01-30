@@ -8547,18 +8547,10 @@ gatsby-page-utils@^0.9.1:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-google-analytics@^2.3.13:
-  version "2.3.13"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.3.13.tgz#46f78f4df11cc773d44e5909ea491c8f8c0e6774"
-  integrity sha512-K/6c9iByR8uDpFZuJrappjyMsVtWFwPyAkRlXFHhq2mmNtgZeRVKFf5XoGiOHCeMPEpBGE58LLana/F01LLteQ==
-  dependencies:
-    "@babel/runtime" "^7.10.3"
-    minimatch "3.0.4"
-
-gatsby-plugin-hooked-head@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-hooked-head/-/gatsby-plugin-hooked-head-0.1.1.tgz#87233f9a9aafb842ebe89db3003f2eadce2779b8"
-  integrity sha512-u/mqjnZeg14G/732I1GHvwQUd8f3GwpeMWb2LcJyhKue0JeLk4zvn/TIlrZ2pJ8zDxDFhCQrGu4mD/auofS60g==
+gatsby-plugin-hoofd@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-hoofd/-/gatsby-plugin-hoofd-0.4.0.tgz#700911afcc7f3deb7eb46b62da47d3545307b175"
+  integrity sha512-J7i8YFTK3CWO8di1euKhKi/VmBDqm9b5FcJIfjg+TQsxyujUGFSGPFw9LIYfpWrY1RDkvLK/VJwhxGub3X6itA==
 
 gatsby-plugin-imgix@^0.8.1:
   version "0.8.2"
@@ -9844,10 +9836,10 @@ homedir-polyfill@^1.0.1:
   dependencies:
     parse-passwd "^1.0.0"
 
-hooked-head@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/hooked-head/-/hooked-head-0.4.1.tgz#118411945e5a6b528a4eac05ede529d871d261b9"
-  integrity sha512-iUWETXGIsyrgspklBquQi3Yu92PapkrlK90qeOb4wYvzDdNPp/ZgjO6BLgs0C/iUuy54PxUwylimxGpNMxhWXA==
+hoofd@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/hoofd/-/hoofd-1.4.0.tgz#b2c94d55ec5fad996ac2aa0476b115d3554b7fd0"
+  integrity sha512-qsfSJKQr/mAUfSLVnjt8wmI9aeCyNUDBiEFnRqzj17G4eFlttEf460pPKSr3ZjEDANEvsvzVuGP1PAwAL5oLTw==
 
 hosted-git-info@^2.1.4:
   version "2.8.8"

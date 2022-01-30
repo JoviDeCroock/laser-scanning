@@ -6,8 +6,7 @@
   "dependencies": {
     "@sendgrid/mail": "^7.4.2",
     "gatsby": "^2.25.0",
-    "gatsby-plugin-google-analytics": "^2.3.13",
-    "gatsby-plugin-hooked-head": "^0.1.1",
+    "gatsby-plugin-hoofd": "^0.4.0",
     "gatsby-plugin-manifest": "2.4.22",
     "gatsby-plugin-offline": "3.2.24",
     "gatsby-plugin-preact": "^4.0.9",
@@ -17,7 +16,7 @@
     "gatsby-plugin-styled-components": "3.3.10",
     "gatsby-source-prismic": "^3.2.1",
     "gatsby-transformer-sharp": "^2.5.13",
-    "hooked-head": "^0.4.1",
+    "hoofd": "^1.4.0",
     "i18next": "17.0.6",
     "node-sass": "4.14.1",
     "preact": "^10.4.7",

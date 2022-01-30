@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLang, useTitle, useMeta } from 'hooked-head'
+import { useLang, useTitle, useMeta } from 'hoofd'
 import { useTranslation } from 'react-i18next'
 
 import '../localization/i18n'
