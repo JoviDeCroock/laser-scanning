@@ -19,6 +19,9 @@ query projects {
               }
             }
           }
+          technologies {
+            text
+          }
           title {
             text
           }

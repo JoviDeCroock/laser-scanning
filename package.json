@@ -35,7 +35,7 @@
   "scripts": {
     "build": "gatsby build",
     "postbuild": "mv ./src/assets/images/website-icon.png ./public/website-icon.png",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write '**/*.js'"
   },
   "devDependencies": {
