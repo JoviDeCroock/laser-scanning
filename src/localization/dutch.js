@@ -50,7 +50,7 @@ const locale = {
     model1: `De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
     en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
     deuren, ramen, ornamenten,...).`,
-    all: 'all'
+    all: 'All'
   },
 }
 

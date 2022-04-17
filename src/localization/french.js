@@ -41,7 +41,7 @@ const locale = {
     des vues de façades. Le niveau de détail souhaité est défini d’avance (i.e. représentation des portes, fenêtres, décorations,…).`,
     model1: `Le nuage de points collecté sert de base au traitement des modèles 3D et des vues. Le niveau de détail souhaité est défini d’avance
     (i.e. représentation des portes, fenêtres, décorations,…).`,
-    all: 'all'
+    all: 'All'
   },
 }
 
