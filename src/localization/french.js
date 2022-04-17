@@ -1,4 +1,4 @@
-export default {
+const locale = {
   translation: {
     mandatory: 'obligatoire',
     sending: 'Chargement',
@@ -43,3 +43,5 @@ export default {
     (i.e. représentation des portes, fenêtres, décorations,…).`
   },
 }
+
+export default locale;

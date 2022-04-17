@@ -9,7 +9,7 @@ query projects {
         createdAt: first_publication_date
         data {
           body {
-            ... on PrismicProjectBodySlideshow {
+            ... on PrismicProjectDataBodySlideshow {
               id
               items {
                 image {

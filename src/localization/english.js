@@ -1,4 +1,4 @@
-export default {
+const locale = {
   translation: {
     mandatory: 'mandatory',
     sending: 'Sending',
@@ -43,3 +43,5 @@ export default {
     and visualizations. The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`
   },
 }
+
+export default locale
