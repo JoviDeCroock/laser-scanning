@@ -1,6 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Lightbox from 'react-images'
+import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const query = graphql`
 query projects {
@@ -9,7 +11,7 @@ query projects {
         createdAt: first_publication_date
         data {
           body {
-            ... on PrismicProjectBodySlideshow {
+            ... on PrismicProjectDataBodySlideshow {
               id
               items {
                 image {
@@ -18,6 +20,9 @@ query projects {
                 }
               }
             }
+          }
+          technologies {
+            text
           }
           title {
             text
@@ -36,11 +41,36 @@ query projects {
 }
 `
 
+const Option = styled.p`
+  cursor: pointer;
+  margin-right: 8px;
+  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
+  &:hover {
+    text-decoration: ${({ selected }) => (!selected ? 'underline' : 'none')};;
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Gallery = ({ images, language }) => {
+  const { t } = useTranslation()
+
+  const [selectedFilter, setSelectedFilter] = React.useState('all')
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
 
   const gotoNext = () => {
     setState({ ...state, currentImage: state.currentImage + 1 })
+  }
+
+  const changeFilter = (filter) => {
+    if (selectedFilter === filter) {
+      setSelectedFilter('all')
+    } else {
+      setSelectedFilter(filter)
+    }
   }
 
   return (
@@ -59,11 +89,18 @@ const Gallery = ({ images, language }) => {
 
             return +new Date(b.createdAt) - +new Date(a.createdAt)
           });
+
+        const techOptions = nodes.reduce((acc, node) => node.data.technologies && node.data.technologies.text && !acc.includes(node.data.technologies.text) ? [...acc, node.data.technologies.text] : acc, [])
+
         return (
           <div>
+            <Wrapper>
+              <Option onClick={() => changeFilter('all')} selected={selectedFilter === 'all'}>{t('all')}</Option>
+              {techOptions.map(tech => <Option onClick={() => changeFilter(tech)} selected={selectedFilter === tech} key={tech}>{tech}</Option>)}
+            </Wrapper>
             <div className="row">
               {nodes ? (
-                nodes.map(({ data: node }, i) => (
+                nodes.filter(node => selectedFilter === 'all' ? true : node.data.technologies && node.data.technologies.text === selectedFilter).map(({ data: node }, i) => (
                   <React.Fragment key={i}>
                     <article className="6u 12u$(xsmall) work-item" key={i}>
                       <a
@@ -76,8 +113,8 @@ const Gallery = ({ images, language }) => {
                       >
                         <img alt="thumbnail" src={node.thumbnail.url} />
                       </a>
-                      <h3>{node.title.text}</h3>
-                      <p>{node.year.text}</p>
+                      <h3>{node.title.text} - {node.year.text}</h3>
+                      <p>{node.technologies.text || ''}</p>
                     </article>
                     <Lightbox
                       currentImage={state.currentImage}

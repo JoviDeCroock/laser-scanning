@@ -1,7 +1,9 @@
-import React from 'react'
+import { useLayoutEffect, useEffect } from 'react'
+
+const useIsomorphicEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 const useNoBodyScroll = (isOpen) => {
-  React.useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'auto';

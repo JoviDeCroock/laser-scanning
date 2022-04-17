@@ -1,4 +1,4 @@
-export default {
+const locale = {
   translation: {
     mandatory: 'verplicht',
     sending: 'Bezig met sturen',
@@ -49,6 +49,9 @@ export default {
     wordt op voorhand vastgelegd (i.e. detaillering van deuren, ramen, ornamenten,...).`,
     model1: `De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
     en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
-    deuren, ramen, ornamenten,...).`
+    deuren, ramen, ornamenten,...).`,
+    all: 'All'
   },
 }
+
+export default locale;

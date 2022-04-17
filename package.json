@@ -1,52 +1,44 @@
 {
-  "name": "swinnen-architecture",
-  "description": "Commercial site for Architecture Swinnen",
+  "name": "laser-scanning",
+  "description": "Commercial site for EDS-Systems",
   "version": "1.0.0",
   "author": "Jovi De Croock",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "postbuild": "cp ./src/assets/images/website-icon.png ./public/website-icon.png",
+    "dev": "gatsby develop",
+    "format": "prettier --write '**/*.js'"
+  },
   "dependencies": {
     "@sendgrid/mail": "^7.4.2",
-    "gatsby": "^2.25.0",
-    "gatsby-plugin-google-analytics": "^2.3.13",
-    "gatsby-plugin-hooked-head": "^0.1.1",
-    "gatsby-plugin-manifest": "2.4.22",
-    "gatsby-plugin-offline": "3.2.24",
-    "gatsby-plugin-preact": "^4.0.9",
-    "gatsby-plugin-purgecss": "^5.0.0",
-    "gatsby-plugin-sass": "2.3.12",
-    "gatsby-plugin-sharp": "^2.6.27",
-    "gatsby-plugin-styled-components": "3.3.10",
-    "gatsby-source-prismic": "^3.2.1",
-    "gatsby-transformer-sharp": "^2.5.13",
-    "hooked-head": "^0.4.1",
+    "hoofd": "^1.4.0",
     "i18next": "17.0.6",
-    "node-sass": "4.14.1",
     "preact": "^10.4.7",
+    "preact-render-to-string": "^5.1.21",
     "query-string": "^6.13.8",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-i18next": "^10.11.4",
     "react-images": "^0.5.19",
-    "react-intersection-observer": "8.25.1",
-    "react-modal": "^3.11.2",
-    "react-spring": "7.2.8",
-    "styled-components": "4.4.1"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "postbuild": "mv ./src/assets/images/website-icon.png ./public/website-icon.png",
-    "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'"
+    "react-modal": "^3.14.4",
+    "styled-components": "5.3.5"
   },
   "devDependencies": {
-    "gatsby-plugin-robots-txt": "^1.5.5",
-    "gatsby-plugin-sitemap": "^3.2.0",
-    "netlify-cli": "^3.8.0",
+    "gatsby": "^4.12.0",
+    "gatsby-image": "^3.11.0",
+    "gatsby-plugin-hoofd": "^0.4.0",
+    "gatsby-plugin-image": "^2.12.1",
+    "gatsby-plugin-preact": "^6.12.1",
+    "gatsby-plugin-purgecss": "^6.1.0",
+    "gatsby-plugin-robots-txt": "^1.7.1",
+    "gatsby-plugin-sass": "^5.12.1",
+    "gatsby-plugin-sharp": "^4.12.1",
+    "gatsby-plugin-sitemap": "^5.12.1",
+    "gatsby-plugin-styled-components": "^5.12.1",
+    "gatsby-source-prismic": "^5.2.5",
+    "gatsby-transformer-sharp": "^4.12.1",
+    "node-sass": "^6.0.1",
     "prettier": "^1.14.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JoviDeCroock/Personal-Website-Liesse"
-  },
-  "homepage": "https://swinnen-architectuur.be/"
+  }
 }

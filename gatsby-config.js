@@ -9,9 +9,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-preact`,
-    'gatsby-plugin-hooked-head',
+    'gatsby-plugin-hoofd',
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
+    'gatsby-plugin-image',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-source-prismic',
       options: {
@@ -22,28 +25,13 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'EDS Systems',
-        short_name: 'EDS Systems',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/assets/images/website-icon.png',
-      },
-    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
     { 
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true,
+        printRejected: false,
       }
     },
-    'gatsby-plugin-offline',
   ],
 }

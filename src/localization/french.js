@@ -1,4 +1,4 @@
-export default {
+const locale = {
   translation: {
     mandatory: 'obligatoire',
     sending: 'Chargement',
@@ -40,6 +40,9 @@ export default {
     plan1: `Le nuage de points collecté sert de base au traitement des plans d’implantations, des plans d’étage, des plans de détails, des coupes verticales et
     des vues de façades. Le niveau de détail souhaité est défini d’avance (i.e. représentation des portes, fenêtres, décorations,…).`,
     model1: `Le nuage de points collecté sert de base au traitement des modèles 3D et des vues. Le niveau de détail souhaité est défini d’avance
-    (i.e. représentation des portes, fenêtres, décorations,…).`
+    (i.e. représentation des portes, fenêtres, décorations,…).`,
+    all: 'All'
   },
 }
+
+export default locale;
