@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Lightbox from 'react-images'
+import styled from 'styled-components'
 
 const query = graphql`
 query projects {
@@ -39,11 +40,34 @@ query projects {
 }
 `
 
+const Option = styled.p`
+  cursor: pointer;
+  margin-right: 8px;
+  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
+  &:hover {
+    text-decoration: ${({ selected }) => (!selected ? 'underline' : 'none')};;
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Gallery = ({ images, language }) => {
+  const [selectedFilter, setSelectedFilter] = React.useState('')
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
 
   const gotoNext = () => {
     setState({ ...state, currentImage: state.currentImage + 1 })
+  }
+
+  const changeFilter = (filter) => {
+    if (selectedFilter === filter) {
+      setSelectedFilter('')
+    } else {
+      setSelectedFilter(filter)
+    }
   }
 
   return (
@@ -63,11 +87,16 @@ const Gallery = ({ images, language }) => {
             return +new Date(b.createdAt) - +new Date(a.createdAt)
           });
 
+        const techOptions = nodes.reduce((acc, node) => node.data.technologies && node.data.technologies.text && !acc.includes(node.data.technologies.text) ? [...acc, node.data.technologies.text] : acc, [])
+
         return (
           <div>
+            <Wrapper>
+              {techOptions.map(tech => <Option onClick={() => changeFilter(tech)} selected={selectedFilter === tech} key={tech}>{tech}</Option>)}
+            </Wrapper>
             <div className="row">
               {nodes ? (
-                nodes.map(({ data: node }, i) => (
+                nodes.filter(node => selectedFilter ? node.data.technologies && node.data.technologies.text === selectedFilter : true).map(({ data: node }, i) => (
                   <React.Fragment key={i}>
                     <article className="6u 12u$(xsmall) work-item" key={i}>
                       <a
