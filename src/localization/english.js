@@ -40,7 +40,8 @@ const locale = {
     plan1: `The acquired pointcloud will serve as a base for the creation of the siting plans, ground plans, detail plans, vertical sections and facade views.
     The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
     model1: `The acquired pointcloud will serve as a base for the creation of our three dimensional models
-    and visualizations. The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`
+    and visualizations. The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
+    all: 'all'
   },
 }
 

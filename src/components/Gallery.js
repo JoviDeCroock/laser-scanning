@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const query = graphql`
 query projects {
@@ -55,7 +56,9 @@ const Wrapper = styled.div`
 `
 
 const Gallery = ({ images, language }) => {
-  const [selectedFilter, setSelectedFilter] = React.useState('')
+  const { t } = useTranslation()
+
+  const [selectedFilter, setSelectedFilter] = React.useState('all')
   const [state, setState] = React.useState({ lightboxIsOpen: false, currentImage: 0 })
 
   const gotoNext = () => {
@@ -64,7 +67,7 @@ const Gallery = ({ images, language }) => {
 
   const changeFilter = (filter) => {
     if (selectedFilter === filter) {
-      setSelectedFilter('')
+      setSelectedFilter('all')
     } else {
       setSelectedFilter(filter)
     }
@@ -92,11 +95,12 @@ const Gallery = ({ images, language }) => {
         return (
           <div>
             <Wrapper>
+              <Option onClick={() => changeFilter('all')} selected={selectedFilter === 'all'}>{t('all')}</Option>
               {techOptions.map(tech => <Option onClick={() => changeFilter(tech)} selected={selectedFilter === tech} key={tech}>{tech}</Option>)}
             </Wrapper>
             <div className="row">
               {nodes ? (
-                nodes.filter(node => selectedFilter ? node.data.technologies && node.data.technologies.text === selectedFilter : true).map(({ data: node }, i) => (
+                nodes.filter(node => selectedFilter === 'all' ? true : node.data.technologies && node.data.technologies.text === selectedFilter).map(({ data: node }, i) => (
                   <React.Fragment key={i}>
                     <article className="6u 12u$(xsmall) work-item" key={i}>
                       <a
