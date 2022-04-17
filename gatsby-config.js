@@ -27,11 +27,12 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
-    { 
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: false,
       }
     },
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }

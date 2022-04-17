@@ -31,6 +31,7 @@
     "gatsby-plugin-image": "^2.12.1",
     "gatsby-plugin-preact": "^6.12.1",
     "gatsby-plugin-purgecss": "^6.1.0",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sass": "^5.12.1",
     "gatsby-plugin-sharp": "^4.12.1",
