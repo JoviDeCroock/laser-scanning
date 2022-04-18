@@ -43,7 +43,9 @@ query projects {
 
 const Option = styled.p`
   cursor: pointer;
-  margin-right: 8px;
+  margin-bottom: 0;
+  margin-left: 4px;
+  margin-right: 4px;
   text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
   &:hover {
     text-decoration: ${({ selected }) => (!selected ? 'underline' : 'none')};;
@@ -96,7 +98,7 @@ const Gallery = ({ images, language }) => {
           <div>
             <Wrapper>
               <Option onClick={() => changeFilter('all')} selected={selectedFilter === 'all'}>{t('all')}</Option>
-              {techOptions.map(tech => <Option onClick={() => changeFilter(tech)} selected={selectedFilter === tech} key={tech}>{tech}</Option>)}
+              {techOptions.map(tech => <>&nbsp;-&nbsp;<Option onClick={() => changeFilter(tech)} selected={selectedFilter === tech} key={tech}>{tech}</Option></>)}
             </Wrapper>
             <div className="row">
               {nodes ? (
