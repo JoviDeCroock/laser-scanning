@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ICON_PATHS = {
   'arrow-left': 'M14.5 5.5L8 12l6.5 6.5',
   'arrow-right': 'M9.5 5.5L16 12l-6.5 6.5',

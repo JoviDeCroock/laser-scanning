@@ -1,14 +1,15 @@
-import { useLayoutEffect, useEffect } from 'react'
+import { useLayoutEffect, useEffect } from 'preact/hooks'
 
-const useIsomorphicEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
+const useIsomorphicEffect =
+  typeof window === 'undefined' ? useEffect : useLayoutEffect
 
-const useNoBodyScroll = (isOpen) => {
+const useNoBodyScroll = isOpen => {
   useIsomorphicEffect(() => {
-    if (isOpen) document.body.style.overflow = 'hidden';
+    if (isOpen) document.body.style.overflow = 'hidden'
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto'
     }
-  }, [isOpen]);
+  }, [isOpen])
 }
 
-export default useNoBodyScroll;
+export default useNoBodyScroll

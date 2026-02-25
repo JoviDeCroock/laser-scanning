@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from '../localization/TranslationContext'
 
 const Introduction = () => {

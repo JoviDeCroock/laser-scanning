@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'preact/hooks'
 import { styled } from '../lib/styled'
 import Layout from './layout'
 import { useQueryParam } from './useQueryParam'
@@ -17,10 +17,10 @@ const Button = styled('button')`
 const UnsubscribePage = () => {
   const initialEmailValue = useQueryParam('email', '')
 
-  const [error, setError] = React.useState(null)
-  const [loading, setLoading] = React.useState(false)
-  const [email, setEmail] = React.useState(initialEmailValue)
-  const [language, setLanguage] = React.useState('nl')
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState(initialEmailValue)
+  const [language, setLanguage] = useState('nl')
   const t = key => translate(language, key)
 
   const unsubscribe = e => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useId } from 'preact/hooks'
 import { styled } from '../lib/styled'
 import useNoBodyScroll from './useNoBodyScroll'
 import Icon from './Icon'
@@ -74,11 +74,11 @@ const Button = styled('button')`
 `
 
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
-  const dialogId = React.useId()
+  const dialogId = useId()
 
   useNoBodyScroll(isOpen)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dialog = document.getElementById(dialogId)
 
     if (!dialog || typeof dialog.showModal !== 'function') {

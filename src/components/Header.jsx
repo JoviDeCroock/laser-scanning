@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from '../localization/TranslationContext'
 
 import Footer from './Footer'

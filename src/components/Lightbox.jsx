@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useId, useState } from 'preact/hooks'
 import { styled } from '../lib/styled'
 import useNoBodyScroll from './useNoBodyScroll'
 import Icon from './Icon'
@@ -188,11 +188,11 @@ const Lightbox = ({
   onPrev,
   onSelect,
 }) => {
-  const dialogId = React.useId()
+  const dialogId = useId()
   const canOpen = isOpen && images.length > 0
-  const [visibleImageIndex, setVisibleImageIndex] = React.useState(currentImage)
-  const [leavingImageIndex, setLeavingImageIndex] = React.useState(null)
-  const [direction, setDirection] = React.useState('next')
+  const [visibleImageIndex, setVisibleImageIndex] = useState(currentImage)
+  const [leavingImageIndex, setLeavingImageIndex] = useState(null)
+  const [direction, setDirection] = useState('next')
   const transitionMs = 240
 
   const visibleImage = images[visibleImageIndex]
@@ -201,7 +201,7 @@ const Lightbox = ({
 
   useNoBodyScroll(canOpen)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dialog = document.getElementById(dialogId)
 
     if (!dialog || typeof dialog.showModal !== 'function') {
@@ -217,14 +217,14 @@ const Lightbox = ({
     }
   }, [canOpen, dialogId])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!canOpen) {
       setLeavingImageIndex(null)
       setVisibleImageIndex(currentImage)
     }
   }, [canOpen, currentImage])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!canOpen || currentImage === visibleImageIndex) {
       return
     }

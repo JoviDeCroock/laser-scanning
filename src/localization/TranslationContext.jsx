@@ -1,7 +1,8 @@
-import React from 'react'
+import { createContext } from 'preact'
+import { useContext, useMemo } from 'preact/hooks'
 import { fallbackLanguage, translate } from './translations'
 
-const TranslationContext = React.createContext({
+const TranslationContext = createContext({
   language: fallbackLanguage,
   setLanguage: () => {},
   t: key => key,
@@ -10,7 +11,7 @@ const TranslationContext = React.createContext({
 const TranslationProvider = ({ language, setLanguage, children }) => {
   const currentLanguage = language || fallbackLanguage
 
-  const value = React.useMemo(
+  const value = useMemo(
     () => ({
       language: currentLanguage,
       setLanguage,
@@ -26,6 +27,6 @@ const TranslationProvider = ({ language, setLanguage, children }) => {
   )
 }
 
-const useTranslation = () => React.useContext(TranslationContext)
+const useTranslation = () => useContext(TranslationContext)
 
 export { TranslationProvider, useTranslation }

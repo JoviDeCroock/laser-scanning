@@ -1,5 +1,3 @@
-import React from 'react'
-
 const LanguageSelector = ({ language, setLanguage }) => (
   <div className="language-selector">
     <button

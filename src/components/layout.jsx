@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Header from './Header'
 import { TranslationProvider } from '../localization/TranslationContext'
 

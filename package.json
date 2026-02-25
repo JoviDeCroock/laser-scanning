@@ -11,13 +11,12 @@
     "format": "prettier --write '**/*.{js,jsx,mjs,astro}'"
   },
   "dependencies": {
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/preact": "^4.1.0",
     "@prismicio/client": "^7.18.0",
     "@sendgrid/mail": "^7.4.2",
     "astro": "^5.3.0",
     "goober": "^2.1.16",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "preact": "^10.28.4",
     "sass": "^1.83.4"
   },
   "devDependencies": {

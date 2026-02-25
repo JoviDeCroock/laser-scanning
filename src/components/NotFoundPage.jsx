@@ -1,9 +1,9 @@
-import React from 'react'
+import { useState } from 'preact/hooks'
 
 import Layout from './layout'
 
 const NotFoundPage = () => {
-  const [language, setLanguage] = React.useState('nl')
+  const [language, setLanguage] = useState('nl')
 
   return (
     <Layout language={language} setLanguage={setLanguage}>

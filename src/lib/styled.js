@@ -1,4 +1,4 @@
-import { createElement } from 'react'
+import { createElement } from 'preact'
 import { setup, styled as gooberStyled } from 'goober'
 
 setup(createElement)

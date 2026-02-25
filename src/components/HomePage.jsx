@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'preact/hooks'
 import Layout from './layout'
 
 import ThreeDInformation from '../areas/3DInformation'
@@ -7,7 +7,7 @@ import Projects from '../areas/Projects'
 import Introduction from '../areas/Introduction'
 
 const HomePage = ({ projects }) => {
-  const [language, setLanguage] = React.useState('nl')
+  const [language, setLanguage] = useState('nl')
 
   return (
     <Layout language={language} setLanguage={setLanguage}>

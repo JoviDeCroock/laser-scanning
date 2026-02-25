@@ -1,4 +1,5 @@
-import React from 'react'
+import { Fragment } from 'preact'
+import { useState } from 'preact/hooks'
 import { useTranslation } from '../localization/TranslationContext'
 import IconWrapper from '../components/InformationIcon'
 import Icon from '../components/Icon'
@@ -7,7 +8,7 @@ import services from '../constants/services'
 import assetSrc from '../lib/assetSrc'
 
 const ThreeDInformation = () => {
-  const [opened, setIsOpened] = React.useState(0)
+  const [opened, setIsOpened] = useState(0)
   const { t } = useTranslation()
   const close = () => setIsOpened(0)
 
@@ -70,7 +71,7 @@ const ThreeDInformation = () => {
               {service.icons.map(({ src, alt }, i) => {
                 const isLast = i === service.icons.length - 1
                 return (
-                  <React.Fragment key={`${src}-${alt}`}>
+                  <Fragment key={`${src}-${alt}`}>
                     <img
                       className="three-d-icon-image"
                       src={assetSrc(src)}
@@ -81,7 +82,7 @@ const ThreeDInformation = () => {
                         <Icon name="arrow-right" />
                       </span>
                     )}
-                  </React.Fragment>
+                  </Fragment>
                 )
               })}
             </div>

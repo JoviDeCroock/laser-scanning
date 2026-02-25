@@ -1,13 +1,14 @@
-import React from 'react'
+import { Fragment } from 'preact'
+import { useState } from 'preact/hooks'
 import { useTranslation } from '../localization/TranslationContext'
 import Lightbox from './Lightbox'
 
 const Gallery = ({ projects, language }) => {
   const { t } = useTranslation()
 
-  const [selectedFilter, setSelectedFilter] = React.useState('all')
-  const [openedNodeIndex, setOpenedNodeIndex] = React.useState(null)
-  const [currentImage, setCurrentImage] = React.useState(0)
+  const [selectedFilter, setSelectedFilter] = useState('all')
+  const [openedNodeIndex, setOpenedNodeIndex] = useState(null)
+  const [currentImage, setCurrentImage] = useState(0)
 
   const changeFilter = filter => {
     setOpenedNodeIndex(null)
@@ -60,7 +61,7 @@ const Gallery = ({ projects, language }) => {
           : []
 
         return (
-          <React.Fragment>
+          <Fragment>
             <div className="project-gallery-filter">
               <button
                 type="button"
@@ -72,7 +73,7 @@ const Gallery = ({ projects, language }) => {
                 {t('all')}
               </button>
               {techOptions.map(tech => (
-                <React.Fragment key={tech}>
+                <Fragment key={tech}>
                   <span
                     aria-hidden="true"
                     className="project-gallery-filter__separator"
@@ -88,7 +89,7 @@ const Gallery = ({ projects, language }) => {
                   >
                     {tech}
                   </button>
-                </React.Fragment>
+                </Fragment>
               ))}
             </div>
             <div className="row">
@@ -135,7 +136,7 @@ const Gallery = ({ projects, language }) => {
               }}
               onSelect={setCurrentImage}
             />
-          </React.Fragment>
+          </Fragment>
         )
       })()}
     </div>

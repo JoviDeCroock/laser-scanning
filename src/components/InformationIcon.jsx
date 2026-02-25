@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'preact'
 import { useTranslation } from '../localization/TranslationContext'
 import Modal from '../components/Modal'
 import Icon from './Icon'
@@ -21,7 +21,7 @@ const IconWrapper = ({
 }) => {
   const { t } = useTranslation()
   return (
-    <React.Fragment>
+    <Fragment>
       <div className="info-icon">
         <img
           className="info-icon__image"
@@ -82,9 +82,9 @@ const IconWrapper = ({
           </div>
         }
       >
-        <React.Fragment>{children}</React.Fragment>
+        <Fragment>{children}</Fragment>
       </Modal>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
