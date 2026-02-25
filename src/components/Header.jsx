@@ -1,19 +1,10 @@
 import React from 'react'
-import { styled } from '../lib/styled'
 import { useTranslation } from '../localization/TranslationContext'
 
 import Footer from './Footer'
 import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
 import assetSrc from '../lib/assetSrc'
-
-const ContactLink = styled('a')`
-  border: 0;
-  color: rgb(232, 230, 227);
-  cursor: pointer;
-  text-decoration: none;
-  width: unset !important;
-`
 
 const Header = ({ language, setLanguage }) => {
   const { t } = useTranslation()
@@ -26,7 +17,7 @@ const Header = ({ language, setLanguage }) => {
           alt="EDS Systems"
           width="128"
           height="128"
-          fetchPriority='high'
+          fetchPriority="high"
           decoding="async"
         />
         <h1>
@@ -38,7 +29,9 @@ const Header = ({ language, setLanguage }) => {
         <p style={{ fontSize: '1em' }}>{t('scanning')}</p>
         <LanguageSelector language={language} setLanguage={setLanguage} />
       </div>
-      <ContactLink href="#four">Contact</ContactLink>
+      <a className="header-contact-link" href="#four">
+        Contact
+      </a>
       <Footer />
     </header>
   )

@@ -1,23 +1,6 @@
 import React from 'react'
-import { styled } from '../lib/styled'
 import { useTranslation } from '../localization/TranslationContext'
 import Lightbox from './Lightbox'
-
-const Option = styled('p')`
-  cursor: pointer;
-  margin-bottom: 0;
-  margin-left: 4px;
-  margin-right: 4px;
-  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
-  &:hover {
-    text-decoration: ${({ selected }) => (!selected ? 'underline' : 'none')};
-  }
-`
-
-const Wrapper = styled('div')`
-  display: flex;
-  align-items: center;
-`
 
 const Gallery = ({ projects, language }) => {
   const { t } = useTranslation()
@@ -78,25 +61,36 @@ const Gallery = ({ projects, language }) => {
 
         return (
           <React.Fragment>
-            <Wrapper>
-              <Option
+            <div className="project-gallery-filter">
+              <button
+                type="button"
+                className={`project-gallery-filter__option ${
+                  selectedFilter === 'all' ? 'is-selected' : ''
+                }`}
                 onClick={() => changeFilter('all')}
-                selected={selectedFilter === 'all'}
               >
                 {t('all')}
-              </Option>
+              </button>
               {techOptions.map(tech => (
                 <React.Fragment key={tech}>
-                  &nbsp;-&nbsp;
-                  <Option
+                  <span
+                    aria-hidden="true"
+                    className="project-gallery-filter__separator"
+                  >
+                    -
+                  </span>
+                  <button
+                    type="button"
+                    className={`project-gallery-filter__option ${
+                      selectedFilter === tech ? 'is-selected' : ''
+                    }`}
                     onClick={() => changeFilter(tech)}
-                    selected={selectedFilter === tech}
                   >
                     {tech}
-                  </Option>
+                  </button>
                 </React.Fragment>
               ))}
-            </Wrapper>
+            </div>
             <div className="row">
               {filteredNodes.map((node, i) => (
                 <article key={node.id} className="6u 12u$(xsmall) work-item">
