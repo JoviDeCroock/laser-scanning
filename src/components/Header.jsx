@@ -24,6 +24,9 @@ const Header = ({ language, setLanguage }) => {
           src={assetSrc(avatar)}
           className="image avatar"
           alt="EDS Systems"
+          width="128"
+          height="128"
+          decoding="async"
         />
         <h1>
           <strong>EDS Systems</strong>

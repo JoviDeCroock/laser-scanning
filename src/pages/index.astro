@@ -12,5 +12,5 @@ const projects = await getProjects()
   robots="index, follow"
   keywords="3D laserscanning bim"
 >
-  <HomePage projects={projects} client:only="react" />
+  <HomePage projects={projects} client:load />
 </BaseLayout>
