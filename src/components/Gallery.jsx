@@ -1,23 +1,6 @@
 import React from 'react'
 import Lightbox from 'react-images'
-import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-
-const Option = styled.p`
-  cursor: pointer;
-  margin-bottom: 0;
-  margin-left: 4px;
-  margin-right: 4px;
-  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
-  &:hover {
-    text-decoration: ${({ selected }) => (!selected ? 'underline' : 'none')};
-  }
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
 
 const Gallery = ({ projects, language }) => {
   const { t } = useTranslation()
@@ -53,7 +36,6 @@ const Gallery = ({ projects, language }) => {
             if (bYear !== aYear) {
               return bYear - aYear
             }
-
             return +new Date(b.createdAt) - +new Date(a.createdAt)
           })
 
@@ -66,26 +48,25 @@ const Gallery = ({ projects, language }) => {
         )
 
         return (
-          <React.Fragment>
-            <Wrapper>
-              <Option
+          <>
+            <div className="projects-filter">
+              <p
+                className={`projects-filter-option${selectedFilter === 'all' ? ' selected' : ''}`}
                 onClick={() => changeFilter('all')}
-                selected={selectedFilter === 'all'}
               >
                 {t('all')}
-              </Option>
+              </p>
               {techOptions.map(tech => (
-                <React.Fragment key={tech}>
-                  &nbsp;-&nbsp;
-                  <Option
-                    onClick={() => changeFilter(tech)}
-                    selected={selectedFilter === tech}
-                  >
-                    {tech}
-                  </Option>
-                </React.Fragment>
+                <p
+                  key={tech}
+                  className={`projects-filter-option${selectedFilter === tech ? ' selected' : ''}`}
+                  onClick={() => changeFilter(tech)}
+                >
+                  {tech}
+                </p>
               ))}
-            </Wrapper>
+            </div>
+
             <div className="row">
               {nodes
                 .filter(node =>
@@ -116,7 +97,7 @@ const Gallery = ({ projects, language }) => {
                           />
                         </a>
                         <h3>
-                          {node.title} - {node.year}
+                          {node.title} — {node.year}
                         </h3>
                         <p>{node.technologies || ''}</p>
                       </article>
@@ -151,7 +132,7 @@ const Gallery = ({ projects, language }) => {
                   )
                 })}
             </div>
-          </React.Fragment>
+          </>
         )
       })()}
     </div>

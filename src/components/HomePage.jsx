@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import '../localization/i18n'
 import Layout from './layout'
+import Footer from './Footer'
 
 import ThreeDInformation from '../areas/3DInformation'
 import Contact from '../areas/Contact'
@@ -27,6 +28,7 @@ const HomePage = ({ projects }) => {
         <ThreeDInformation />
         <Projects language={language} projects={projects} />
         <Contact />
+        <Footer />
       </div>
     </Layout>
   )

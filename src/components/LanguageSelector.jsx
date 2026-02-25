@@ -1,33 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  @media screen and (max-width: 980px) {
-    justify-content: center;
-  }
-`
-
-const Option = styled.p`
-  cursor: pointer;
-  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
-`
 
 const LanguageSelector = ({ language, setLanguage }) => (
-  <Wrapper>
-    <Option selected={language === 'nl'} onClick={() => setLanguage('nl')}>
-      NL
-    </Option>
-    &nbsp;|&nbsp;
-    <Option selected={language === 'fr'} onClick={() => setLanguage('fr')}>
-      FR
-    </Option>
-    &nbsp;|&nbsp;
-    <Option selected={language === 'en'} onClick={() => setLanguage('en')}>
-      EN
-    </Option>
-  </Wrapper>
+  <div className="lang-selector">
+    {['nl', 'fr', 'en'].map(lang => (
+      <p
+        key={lang}
+        className={`lang-option${language === lang ? ' active' : ''}`}
+        onClick={() => setLanguage(lang)}
+      >
+        {lang.toUpperCase()}
+      </p>
+    ))}
+  </div>
 )
 
 export default LanguageSelector

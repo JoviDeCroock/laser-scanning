@@ -1,41 +1,41 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-
-import Footer from './Footer'
-import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
 import assetSrc from '../lib/assetSrc'
-
-const ContactLink = styled.a`
-  border: 0;
-  color: rgb(232, 230, 227);
-  cursor: pointer;
-  text-decoration: none;
-  width: unset !important;
-`
+import avatar from '../assets/images/website-icon.png'
 
 const Header = ({ language, setLanguage }) => {
   const { t } = useTranslation()
+  const [scrolled, setScrolled] = React.useState(false)
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header id="header">
-      <div className="inner">
-        <img
-          src={assetSrc(avatar)}
-          className="image avatar"
-          alt="EDS Systems"
-        />
-        <h1>
-          <strong>EDS Systems</strong>
-        </h1>
-        <h2>
-          <strong>Mark Swinnen</strong>
-        </h2>
-        <p style={{ fontSize: '1em' }}>{t('scanning')}</p>
-        <LanguageSelector language={language} setLanguage={setLanguage} />
+    <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
+      <div className="site-header__inner">
+        <a href="#hero" className="site-header__brand">
+          <img src={assetSrc(avatar)} alt="EDS Systems" />
+          <div>
+            <span className="site-header__brand-name">EDS Systems</span>
+            <span className="site-header__brand-sub">Mark Swinnen</span>
+          </div>
+        </a>
+
+        <nav className="site-header__nav">
+          <a href="#intro">{t('introduction')}</a>
+          <a href="#services">{t('threeD')}</a>
+          <a href="#projects">{t('projects')}</a>
+          <a href="#contact">{t('getInTouch')}</a>
+        </nav>
+
+        <div className="site-header__right">
+          <LanguageSelector language={language} setLanguage={setLanguage} />
+        </div>
       </div>
-      <ContactLink href="#four">Contact</ContactLink>
-      <Footer />
     </header>
   )
 }

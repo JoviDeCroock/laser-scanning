@@ -1,84 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import Modal from '../components/Modal'
 import assetSrc from '../lib/assetSrc'
-
-const Image = styled.img`
-  cursor: pointer;
-  width: auto;
-  height: 80%;
-  border: 1px solid transparent;
-  border-radius: 100%;
-  filter: drop-shadow(2px 4px 6px #787878);
-
-  &:hover {
-    transition: all 0.33s ease-in-out;
-    transform: scale(1.1);
-  }
-
-  @media (min-width: 768px) {
-    width: 100%;
-    height: 100%;
-  }
-`
-
-const ButtonGroup = styled.div`
-  grid-template-columns: 100px 100px;
-  grid-gap: 24px;
-  display: grid;
-  with: 300px;
-`
-
-const Button = styled.button`
-  background-color: white;
-  border: none;
-  border-radius: 100%;
-  cursor: pointer;
-  height: 50px;
-  width: 50px;
-`
-
-const ImageWrapper = styled.span`
-  align-items: center;
-  width: 50%;
-  height: 75%;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  @media (min-width: 768px) {
-    width: 20%;
-    margin-left: unset;
-    margin-right: unset;
-  }
-`
-
-const SubText = styled.p`
-  cursor: pointer;
-  margin-bottom: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  &:hover {
-    text-decoration: underline;
-  }
-`
-
-const ButtonWrapper = styled.span`
-  align-items: center;
-  display: flex;
-`
-
-const Logo = styled.img`
-  cursor: pointer;
-  height: 50px;
-  width: 50px;
-`
-
-const Invisible = styled.span`
-  visibility: hidden;
-`
 
 const IconWrapper = ({
   src,
@@ -96,57 +19,99 @@ const IconWrapper = ({
   nextLogoAlt,
 }) => {
   const { t } = useTranslation()
+
   return (
-    <React.Fragment>
-      <ImageWrapper>
-        <Image
-          title={t(title)}
-          alt={t(alt)}
+    <>
+      <div className="info-card" onClick={open} role="button" tabIndex={0} onKeyDown={e => e.key === 'Enter' && open()}>
+        <img
+          className="info-card__icon"
           src={assetSrc(src)}
-          onClick={open}
+          alt={t(alt)}
+          aria-hidden="true"
         />
-        <SubText title={t(title)} onClick={open}>
-          {t(title)}
-        </SubText>
-      </ImageWrapper>
+        <span className="info-card__title">{t(title)}</span>
+        <div className="info-card__caret" />
+      </div>
+
       <Modal
         isOpen={isOpen}
         onRequestClose={close}
         title={t(title)}
         icon={{ src: assetSrc(src), alt: t(alt) }}
         footer={
-          <ButtonGroup>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             {prev ? (
-              <ButtonWrapper>
-                <Logo
-                  src={assetSrc(prevLogo)}
-                  alt={t(prevLogoAlt)}
-                  onClick={prev}
-                />
-                <Button className="icon fa-arrow-left" left onClick={prev} />
-              </ButtonWrapper>
+              <button
+                onClick={e => { e.stopPropagation(); prev() }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  background: 'transparent',
+                  border: '1px solid rgba(0, 212, 180, 0.25)',
+                  borderRadius: '4px',
+                  padding: '0.6em 1.2em',
+                  cursor: 'pointer',
+                  color: '#a0b0c0',
+                  fontFamily: 'Space Mono, monospace',
+                  fontSize: '0.7em',
+                  letterSpacing: '0.1em',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = '#00d4b4'
+                  e.currentTarget.style.color = '#00d4b4'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(0, 212, 180, 0.25)'
+                  e.currentTarget.style.color = '#a0b0c0'
+                }}
+              >
+                <img src={assetSrc(prevLogo)} alt={t(prevLogoAlt)} style={{ width: 24, height: 24, filter: 'brightness(0) invert(1) opacity(0.6)' }} />
+                ← Prev
+              </button>
             ) : (
-              <Invisible aria-hidden="true" />
+              <span style={{ visibility: 'hidden', width: '80px' }} />
             )}
             {next ? (
-              <ButtonWrapper>
-                <Button className="icon fa-arrow-right" onClick={next} />
-                <Logo
-                  src={assetSrc(nextLogo)}
-                  alt={t(nextLogoAlt)}
-                  left={false}
-                  onClick={next}
-                />
-              </ButtonWrapper>
+              <button
+                onClick={e => { e.stopPropagation(); next() }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  background: 'transparent',
+                  border: '1px solid rgba(0, 212, 180, 0.25)',
+                  borderRadius: '4px',
+                  padding: '0.6em 1.2em',
+                  cursor: 'pointer',
+                  color: '#a0b0c0',
+                  fontFamily: 'Space Mono, monospace',
+                  fontSize: '0.7em',
+                  letterSpacing: '0.1em',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = '#00d4b4'
+                  e.currentTarget.style.color = '#00d4b4'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(0, 212, 180, 0.25)'
+                  e.currentTarget.style.color = '#a0b0c0'
+                }}
+              >
+                Next →
+                <img src={assetSrc(nextLogo)} alt={t(nextLogoAlt)} style={{ width: 24, height: 24, filter: 'brightness(0) invert(1) opacity(0.6)' }} />
+              </button>
             ) : (
-              <Invisible aria-hidden="true" />
+              <span style={{ visibility: 'hidden', width: '80px' }} />
             )}
-          </ButtonGroup>
+          </div>
         }
       >
-        <React.Fragment>{children}</React.Fragment>
+        {children}
       </Modal>
-    </React.Fragment>
+    </>
   )
 }
 
