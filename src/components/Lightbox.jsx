@@ -21,14 +21,6 @@ const Content = styled('div')`
   background-color: #111;
 `
 
-const Image = styled('img')`
-  display: block;
-  width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
-  cursor: pointer;
-`
-
 const CloseButton = styled('button')`
   position: absolute;
   top: 8px;
@@ -49,14 +41,121 @@ const NavButton = styled('button')`
   background: transparent;
   border: 0;
   cursor: pointer;
+
+  @keyframes lightboxArrowBounceLeft {
+    0% {
+      transform: translateY(-50%) translateX(0);
+    }
+    45% {
+      transform: translateY(-50%) translateX(-6px);
+    }
+    100% {
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+
+  @keyframes lightboxArrowBounceRight {
+    0% {
+      transform: translateY(-50%) translateX(0);
+    }
+    45% {
+      transform: translateY(-50%) translateX(6px);
+    }
+    100% {
+      transform: translateY(-50%) translateX(0);
+    }
+  }
 `
 
 const PrevButton = styled(NavButton)`
   left: 0px;
+
+  &:hover {
+    animation: lightboxArrowBounceLeft 0.38s ease-in-out;
+  }
 `
 
 const NextButton = styled(NavButton)`
   right: 0px;
+
+  &:hover {
+    animation: lightboxArrowBounceRight 0.38s ease-in-out;
+  }
+`
+
+const Frame = styled('div')`
+  position: relative;
+  display: grid;
+  overflow: hidden;
+`
+
+const SlideImage = styled('img')`
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  cursor: pointer;
+
+  &.slide-enter-next {
+    animation: lightboxImageInFromRight 0.24s ease-out;
+  }
+
+  &.slide-enter-prev {
+    animation: lightboxImageInFromLeft 0.24s ease-out;
+  }
+
+  &.slide-leave-next {
+    animation: lightboxImageOutToLeft 0.24s ease-in;
+  }
+
+  &.slide-leave-prev {
+    animation: lightboxImageOutToRight 0.24s ease-in;
+  }
+
+  @keyframes lightboxImageInFromRight {
+    from {
+      transform: translateX(18%);
+      opacity: 0.35;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes lightboxImageInFromLeft {
+    from {
+      transform: translateX(-18%);
+      opacity: 0.35;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes lightboxImageOutToLeft {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-18%);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes lightboxImageOutToRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(18%);
+      opacity: 0.2;
+    }
+  }
 `
 
 const Caption = styled('p')`
@@ -89,8 +188,15 @@ const Lightbox = ({
   onSelect,
 }) => {
   const dialogId = React.useId()
-  const current = images[currentImage]
   const canOpen = isOpen && images.length > 0
+  const [visibleImageIndex, setVisibleImageIndex] = React.useState(currentImage)
+  const [leavingImageIndex, setLeavingImageIndex] = React.useState(null)
+  const [direction, setDirection] = React.useState('next')
+  const transitionMs = 240
+
+  const visibleImage = images[visibleImageIndex]
+  const leavingImage =
+    leavingImageIndex === null ? null : images[leavingImageIndex]
 
   useNoBodyScroll(canOpen)
 
@@ -109,6 +215,31 @@ const Lightbox = ({
       dialog.close()
     }
   }, [canOpen, dialogId])
+
+  React.useEffect(() => {
+    if (!canOpen) {
+      setLeavingImageIndex(null)
+      setVisibleImageIndex(currentImage)
+    }
+  }, [canOpen, currentImage])
+
+  React.useEffect(() => {
+    if (!canOpen || currentImage === visibleImageIndex) {
+      return
+    }
+
+    setDirection(currentImage > visibleImageIndex ? 'next' : 'prev')
+    setLeavingImageIndex(visibleImageIndex)
+    setVisibleImageIndex(currentImage)
+
+    const timeoutId = window.setTimeout(() => {
+      setLeavingImageIndex(null)
+    }, transitionMs)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [canOpen, currentImage, visibleImageIndex])
 
   if (!images.length) {
     return null
@@ -148,16 +279,32 @@ const Lightbox = ({
             onClick={onNext}
           />
         )}
-        <Image
-          src={current.src}
-          alt={current.alt || 'slideshow image'}
-          onClick={() => {
-            if (currentImage < images.length - 1) {
-              onNext()
-            }
-          }}
-        />
-        <Caption>{current.alt || ''}</Caption>
+        <Frame>
+          {leavingImage && (
+            <SlideImage
+              key={`leaving-${leavingImageIndex}-${direction}`}
+              src={leavingImage.src}
+              alt={leavingImage.alt || 'slideshow image'}
+              className={`slide-leave-${direction}`}
+            />
+          )}
+          {visibleImage && (
+            <SlideImage
+              key={`visible-${visibleImageIndex}-${direction}-${Boolean(
+                leavingImage
+              )}`}
+              src={visibleImage.src}
+              alt={visibleImage.alt || 'slideshow image'}
+              className={leavingImage ? `slide-enter-${direction}` : undefined}
+              onClick={() => {
+                if (currentImage < images.length - 1) {
+                  onNext()
+                }
+              }}
+            />
+          )}
+        </Frame>
+        <Caption>{visibleImage?.alt || ''}</Caption>
         <Thumbnails>
           {images.map((image, index) => (
             <Thumbnail
