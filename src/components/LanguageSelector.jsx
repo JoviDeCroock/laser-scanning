@@ -1,33 +1,41 @@
 import React from 'react'
-import { styled } from '../lib/styled'
-
-const Wrapper = styled('div')`
-  display: flex;
-  justify-content: flex-end;
-  @media screen and (max-width: 980px) {
-    justify-content: center;
-  }
-`
-
-const Option = styled('p')`
-  cursor: pointer;
-  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
-`
 
 const LanguageSelector = ({ language, setLanguage }) => (
-  <Wrapper>
-    <Option selected={language === 'nl'} onClick={() => setLanguage('nl')}>
+  <div className="language-selector">
+    <button
+      type="button"
+      className={`language-selector__option ${
+        language === 'nl' ? 'is-selected' : ''
+      }`}
+      onClick={() => setLanguage('nl')}
+    >
       NL
-    </Option>
-    &nbsp;|&nbsp;
-    <Option selected={language === 'fr'} onClick={() => setLanguage('fr')}>
+    </button>
+    <span aria-hidden="true" className="language-selector__separator">
+      |
+    </span>
+    <button
+      type="button"
+      className={`language-selector__option ${
+        language === 'fr' ? 'is-selected' : ''
+      }`}
+      onClick={() => setLanguage('fr')}
+    >
       FR
-    </Option>
-    &nbsp;|&nbsp;
-    <Option selected={language === 'en'} onClick={() => setLanguage('en')}>
+    </button>
+    <span aria-hidden="true" className="language-selector__separator">
+      |
+    </span>
+    <button
+      type="button"
+      className={`language-selector__option ${
+        language === 'en' ? 'is-selected' : ''
+      }`}
+      onClick={() => setLanguage('en')}
+    >
       EN
-    </Option>
-  </Wrapper>
+    </button>
+  </div>
 )
 
 export default LanguageSelector

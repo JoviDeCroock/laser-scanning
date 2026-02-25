@@ -1030,6 +1030,37 @@ input[type='button'],
   }
 }
 
+.language-selector {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+  @include breakpoint(medium) {
+    justify-content: center;
+  }
+
+  .language-selector__option {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+    &.is-selected {
+      text-decoration: underline;
+    }
+  }
+
+  .language-selector__separator {
+    line-height: 1;
+    margin: 0 0.25em;
+  }
+}
+
 /* Footer */
 
 #footer {

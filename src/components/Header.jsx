@@ -26,6 +26,7 @@ const Header = ({ language, setLanguage }) => {
           alt="EDS Systems"
           width="128"
           height="128"
+          fetchPriority='high'
           decoding="async"
         />
         <h1>
