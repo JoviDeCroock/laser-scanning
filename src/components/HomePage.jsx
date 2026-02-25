@@ -11,12 +11,12 @@ const HomePage = ({ projects }) => {
 
   return (
     <Layout language={language} setLanguage={setLanguage}>
-      <div id="main">
+      <main id="main">
         <Introduction />
         <ThreeDInformation />
         <Projects language={language} projects={projects} />
         <Contact />
-      </div>
+      </main>
     </Layout>
   )
 }

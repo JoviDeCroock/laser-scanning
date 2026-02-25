@@ -7,10 +7,10 @@ const NotFoundPage = () => {
 
   return (
     <Layout language={language} setLanguage={setLanguage}>
-      <div id="main">
+      <main id="main">
         <h1>NOT FOUND</h1>
         <p>You just hit a route that doesn't exist... the sadness.</p>
-      </div>
+      </main>
     </Layout>
   )
 }

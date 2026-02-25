@@ -47,7 +47,7 @@ const UnsubscribePage = () => {
 
   return (
     <Layout language={language} setLanguage={setLanguage}>
-      <div id="main">
+      <main id="main">
         <form onSubmit={unsubscribe}>
           <label htmlFor="email">{`Email* (${t('mandatory')})`}</label>
           <input
@@ -62,7 +62,7 @@ const UnsubscribePage = () => {
           {loading && <p>{t('sending')}...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-      </div>
+      </main>
     </Layout>
   )
 }
