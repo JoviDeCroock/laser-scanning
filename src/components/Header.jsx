@@ -1,13 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import { styled } from '../lib/styled'
+import { useTranslation } from '../localization/TranslationContext'
 
 import Footer from './Footer'
 import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
 import assetSrc from '../lib/assetSrc'
 
-const ContactLink = styled.a`
+const ContactLink = styled('a')`
   border: 0;
   color: rgb(232, 230, 227);
   cursor: pointer;

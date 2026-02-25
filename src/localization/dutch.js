@@ -7,6 +7,7 @@ const locale = {
     unsubscribe: 'Uitschrijven',
     scanning: '3D Laser Scanning',
     getInTouch: 'Neem contact op',
+    belgium: 'Belgie',
     phone: 'Telefoon',
     projects: 'Projecten',
     threeD: '3D scanning en verwerking',
@@ -15,7 +16,8 @@ const locale = {
     scanToPlan: 'Scan tot plan',
     scanToCloud: 'Scan tot puntenwolk',
     scanToModel: 'Scan tot model',
-    siteDescription: '3D Laser Scanning, digitale opmeting & verwerking. Vind hier meer informatie over onze diensten',
+    siteDescription:
+      '3D Laser Scanning, digitale opmeting & verwerking. Vind hier meer informatie over onze diensten',
     introduction: 'Introductie',
     introCopy: `EDS Systems is een team van gedreven tekenaars met ervaring in de bouw, die zich
     toegelegd hebben op digitale opmeting en verwerking van gebouwen, monumenten,
@@ -50,8 +52,8 @@ const locale = {
     model1: `De verworven puntenwolk dient als basis voor het uitwerken van driedimensionale modellen
     en visualisaties. De graad van uitwerking wordt op voorhand vastgelegd (i.e. detaillering van
     deuren, ramen, ornamenten,...).`,
-    all: 'All'
+    all: 'All',
   },
 }
 
-export default locale;
+export default locale

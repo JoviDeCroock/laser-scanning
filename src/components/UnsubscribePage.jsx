@@ -1,12 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
-
-import '../localization/i18n'
+import { styled } from '../lib/styled'
 import Layout from './layout'
 import { useQueryParam } from './useQueryParam'
+import { translate } from '../localization/translations'
 
-const Button = styled.button`
+const Button = styled('button')`
   cursor: pointer;
   width: auto;
   height: 80%;
@@ -23,16 +21,7 @@ const UnsubscribePage = () => {
   const [loading, setLoading] = React.useState(false)
   const [email, setEmail] = React.useState(initialEmailValue)
   const [language, setLanguage] = React.useState('nl')
-
-  const prevLanguage = React.useRef(language)
-
-  const { t, i18n } = useTranslation()
-
-  React.useEffect(() => {
-    if (prevLanguage.current !== language) {
-      i18n.changeLanguage((prevLanguage.current = language))
-    }
-  }, [language, i18n])
+  const t = key => translate(language, key)
 
   const unsubscribe = e => {
     e.preventDefault()

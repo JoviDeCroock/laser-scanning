@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import { styled } from '../lib/styled'
+import { useTranslation } from '../localization/TranslationContext'
 import Modal from '../components/Modal'
 import assetSrc from '../lib/assetSrc'
 
-const Image = styled.img`
+const Image = styled('img')`
   cursor: pointer;
   width: auto;
   height: 80%;
@@ -23,14 +23,14 @@ const Image = styled.img`
   }
 `
 
-const ButtonGroup = styled.div`
+const ButtonGroup = styled('div')`
   grid-template-columns: 100px 100px;
   grid-gap: 24px;
   display: grid;
   with: 300px;
 `
 
-const Button = styled.button`
+const Button = styled('button')`
   background-color: white;
   border: none;
   border-radius: 100%;
@@ -39,7 +39,7 @@ const Button = styled.button`
   width: 50px;
 `
 
-const ImageWrapper = styled.span`
+const ImageWrapper = styled('span')`
   align-items: center;
   width: 50%;
   height: 75%;
@@ -54,7 +54,7 @@ const ImageWrapper = styled.span`
   }
 `
 
-const SubText = styled.p`
+const SubText = styled('p')`
   cursor: pointer;
   margin-bottom: 0;
   text-overflow: ellipsis;
@@ -65,18 +65,18 @@ const SubText = styled.p`
   }
 `
 
-const ButtonWrapper = styled.span`
+const ButtonWrapper = styled('span')`
   align-items: center;
   display: flex;
 `
 
-const Logo = styled.img`
+const Logo = styled('img')`
   cursor: pointer;
   height: 50px;
   width: 50px;
 `
 
-const Invisible = styled.span`
+const Invisible = styled('span')`
   visibility: hidden;
 `
 

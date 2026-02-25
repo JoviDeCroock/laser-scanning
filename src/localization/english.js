@@ -7,6 +7,7 @@ const locale = {
     unsubscribe: 'Unsubscribe',
     scanning: '3D Laser Scanning',
     getInTouch: 'Get in touch',
+    belgium: 'Belgium',
     phone: 'Phone',
     projects: 'Projects',
     threeD: '3D scanning and processing',
@@ -41,7 +42,7 @@ const locale = {
     The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
     model1: `The acquired pointcloud will serve as a base for the creation of our three dimensional models
     and visualizations. The grade of detail will be discussed in advance (i.e. details of doors, windows, ornaments,...).`,
-    all: 'All'
+    all: 'All',
   },
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '../localization/TranslationContext'
 
 const Contact = () => {
   const { t } = useTranslation()

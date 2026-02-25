@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from '../lib/styled'
 
-const Wrapper = styled.div`
+const Wrapper = styled('div')`
   display: flex;
   justify-content: flex-end;
   @media screen and (max-width: 980px) {
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Option = styled.p`
+const Option = styled('p')`
   cursor: pointer;
   text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
 `

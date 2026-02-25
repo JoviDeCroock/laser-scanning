@@ -1,7 +1,4 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-
-import '../localization/i18n'
 import Layout from './layout'
 
 import ThreeDInformation from '../areas/3DInformation'
@@ -11,14 +8,6 @@ import Introduction from '../areas/Introduction'
 
 const HomePage = ({ projects }) => {
   const [language, setLanguage] = React.useState('nl')
-  const prevLanguage = React.useRef(language)
-  const { i18n } = useTranslation()
-
-  React.useEffect(() => {
-    if (prevLanguage.current !== language) {
-      i18n.changeLanguage((prevLanguage.current = language))
-    }
-  }, [language, i18n])
 
   return (
     <Layout language={language} setLanguage={setLanguage}>

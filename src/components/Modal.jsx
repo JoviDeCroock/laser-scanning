@@ -1,13 +1,31 @@
 import React from 'react'
-import styled from 'styled-components'
-import ReactModal from 'react-modal'
+import { styled } from '../lib/styled'
 import useNoBodyScroll from './useNoBodyScroll'
 
-if (typeof document !== 'undefined') {
-  ReactModal.setAppElement('#app')
-}
+const StyledDialog = styled('dialog')`
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  max-width: 960px;
+  min-height: 500px;
+  padding: 32px;
+  position: relative;
+  margin: 64px auto;
 
-const HeaderWrapper = styled.div`
+  @media (min-width: 768px) {
+    min-height: 900px;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.58);
+  }
+`
+
+const HeaderWrapper = styled('div')`
   display: flex;
   align-items: center;
   padding-bottom: 16px;
@@ -15,24 +33,24 @@ const HeaderWrapper = styled.div`
   border-bottom: 1px solid black;
 `
 
-const HeaderIcon = styled.img`
+const HeaderIcon = styled('img')`
   height: 75px;
   width: 75px;
   margin-right: 16px;
 `
 
-const HeaderTitle = styled.h1`
-  margin-bottom: 0px;
+const HeaderTitle = styled('h1')`
+  margin-bottom: 0;
 `
 
-const Body = styled.div`
+const Body = styled('div')`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 64px;
 `
 
-const Footer = styled.div`
+const Footer = styled('div')`
   display: flex;
   justify-content: center;
   position: absolute;
@@ -41,36 +59,7 @@ const Footer = styled.div`
   right: 50%;
 `
 
-const modalStyles = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.58)',
-    overflow: 'auto',
-  },
-}
-
-const StyledModal = styled(ReactModal)`
-  background-color: white;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  bottom: auto;
-  left: auto;
-  max-width: 960px;
-  min-height: 500px;
-  padding: 32px;
-  position: relative;
-  right: auto;
-  top: auto;
-  margin: 64px auto;
-  @media (min-width: 768px) {
-    min-height: 900px;
-  }
-
-  :focus {
-    outline: none;
-  }
-`
-
-const Button = styled.button`
+const Button = styled('button')`
   color: white;
   position: absolute;
   background-color: transparent;
@@ -80,19 +69,50 @@ const Button = styled.button`
   font-size: 24px;
   margin-left: 16px;
   top: -32px;
-  right: 0px;
+  right: 0;
 `
 
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
+  const dialogId = React.useId()
+
   useNoBodyScroll(isOpen)
+
+  React.useEffect(() => {
+    const dialog = document.getElementById(dialogId)
+
+    if (!dialog || typeof dialog.showModal !== 'function') {
+      return
+    }
+
+    if (isOpen && !dialog.open) {
+      dialog.showModal()
+    }
+
+    if (!isOpen && dialog.open) {
+      dialog.close()
+    }
+  }, [dialogId, isOpen])
+
   return (
-    <StyledModal
-      isOpen={isOpen}
-      style={modalStyles}
-      contentLabel="Modal"
-      onRequestClose={onRequestClose}
+    <StyledDialog
+      id={dialogId}
+      onCancel={e => {
+        e.preventDefault()
+        onRequestClose()
+      }}
+      onClick={e => {
+        if (e.target === e.currentTarget) {
+          onRequestClose()
+        }
+      }}
+      aria-label={title}
     >
-      <Button className="icon fa-times" onClick={onRequestClose} />
+      <Button
+        className="icon fa-times"
+        type="button"
+        aria-label="Close"
+        onClick={onRequestClose}
+      />
       <HeaderWrapper>
         <HeaderIcon src={icon?.src || ''} alt={icon?.alt || ''} />
         <HeaderTitle>{title}</HeaderTitle>
@@ -101,7 +121,7 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
         <div>{children}</div>
         {footer && <Footer>{footer}</Footer>}
       </Body>
-    </StyledModal>
+    </StyledDialog>
   )
 }
 
