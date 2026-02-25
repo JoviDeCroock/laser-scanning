@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import ReactModal from 'react-modal'
-import useNoBodyScroll from './useNoBodyScroll';
+import useNoBodyScroll from './useNoBodyScroll'
 
-ReactModal.setAppElement(`#___gatsby`);
+if (typeof document !== 'undefined') {
+  ReactModal.setAppElement('#app')
+}
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -11,24 +13,24 @@ const HeaderWrapper = styled.div`
   padding-bottom: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid black;
-`;
+`
 
 const HeaderIcon = styled.img`
   height: 75px;
   width: 75px;
   margin-right: 16px;
-`;
+`
 
 const HeaderTitle = styled.h1`
   margin-bottom: 0px;
-`;
+`
 
 const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 64px;
-`;
+`
 
 const Footer = styled.div`
   display: flex;
@@ -37,14 +39,14 @@ const Footer = styled.div`
   bottom: 32px;
   left: 50%;
   right: 50%;
-`;
+`
 
 const modalStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.58)",
-    overflow: 'auto'
+    backgroundColor: 'rgba(0, 0, 0, 0.58)',
+    overflow: 'auto',
   },
-};
+}
 
 const StyledModal = styled(ReactModal)`
   background-color: white;
@@ -60,13 +62,13 @@ const StyledModal = styled(ReactModal)`
   top: auto;
   margin: 64px auto;
   @media (min-width: 768px) {
-    min-height: 900px;    
+    min-height: 900px;
   }
 
   :focus {
     outline: none;
   }
-`;
+`
 
 const Button = styled.button`
   color: white;
@@ -79,29 +81,28 @@ const Button = styled.button`
   margin-left: 16px;
   top: -32px;
   right: 0px;
-`;
+`
 
 const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
   useNoBodyScroll(isOpen)
   return (
-    <StyledModal isOpen={isOpen} style={modalStyles} contentLabel="Modal" onRequestClose={onRequestClose}>
+    <StyledModal
+      isOpen={isOpen}
+      style={modalStyles}
+      contentLabel="Modal"
+      onRequestClose={onRequestClose}
+    >
       <Button className="icon fa-times" onClick={onRequestClose} />
       <HeaderWrapper>
-        <HeaderIcon src={icon.src} alt={icon.alt} />
+        <HeaderIcon src={icon?.src || ''} alt={icon?.alt || ''} />
         <HeaderTitle>{title}</HeaderTitle>
       </HeaderWrapper>
       <Body>
-        <div>
-          {children}
-        </div>
-        {footer &&
-          <Footer>
-            {footer}
-          </Footer>
-        }
+        <div>{children}</div>
+        {footer && <Footer>{footer}</Footer>}
       </Body>
     </StyledModal>
   )
 }
 
-export default Modal;
+export default Modal

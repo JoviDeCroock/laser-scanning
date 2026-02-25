@@ -1,0 +1,33 @@
+---
+import '../assets/scss/main.scss'
+
+const {
+  title = 'EDS Systems',
+  description = '3D Laser Scanning',
+  robots = 'index, follow',
+  keywords = '3D laserscanning bim',
+  imageUrl = 'https://eds-systems.be/website-icon.png',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="robots" content={robots} />
+    <meta name="keywords" content={keywords} />
+  </head>
+  <body>
+    <div id="app">
+      <slot />
+    </div>
+  </body>
+</html>

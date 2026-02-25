@@ -1,0 +1,13 @@
+---
+import NotFoundPage from '../components/NotFoundPage'
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Page not found - EDS Systems"
+  description="The requested page could not be found."
+  robots="noindex"
+  keywords=""
+>
+  <NotFoundPage client:only="react" />
+</BaseLayout>

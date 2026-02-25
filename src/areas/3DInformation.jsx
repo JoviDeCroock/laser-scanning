@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import IconWrapper from '../components/InformationIcon'
 import infoBlocks from '../constants/infoBlocks'
-import services from '../constants/services';
+import services from '../constants/services'
+import assetSrc from '../lib/assetSrc'
 
 const Line = styled.div`
   align-items: unset;
@@ -16,7 +17,7 @@ const Line = styled.div`
     justify-content: unset;
     align-items: center;
   }
-`;
+`
 
 const Image = styled.img`
   width: 50px;
@@ -31,13 +32,13 @@ const Icons = styled.div`
     margin-bottom: 0;
     width: 35%;
   }
-`;
+`
 
 const Arrow = styled.span`
   margin-right: 16px;
   margin-left: 16px;
   font-size: 16px;
-`;
+`
 
 const Text = styled.p`
   margin: 0;
@@ -47,7 +48,7 @@ const Text = styled.p`
     margin-bottom: 0;
     width: 65%;
   }
-`;
+`
 
 const Gallery = styled.div`
   display: grid;
@@ -64,13 +65,13 @@ const Gallery = styled.div`
 const SubTitle = styled.p`
   margin-top: 32px;
   margin-bottom: 16px;
-`;
+`
 
 const BodyImageWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-`;
+`
 
 const BodyImage = styled.img`
   width: 300px;
@@ -79,12 +80,12 @@ const BodyImage = styled.img`
     width: 100%;
     height: auto;
   }
-`;
+`
 
 const ThreeDInformation = () => {
-  const [opened, setIsOpened] = React.useState(0);
+  const [opened, setIsOpened] = React.useState(0)
   const { t } = useTranslation()
-  const close = () => setIsOpened(0);
+  const close = () => setIsOpened(0)
 
   return (
     <section id="two">
@@ -92,9 +93,12 @@ const ThreeDInformation = () => {
         <h2>{t('threeD')}</h2>
         <Gallery>
           {infoBlocks.map((info, i) => {
-            const index = i + 1;
-            const prev = i >= 1 ? () => setIsOpened(index - 1) : undefined;
-            const next = i < infoBlocks.length - 1 ? () => setIsOpened(index + 1) : undefined;
+            const index = i + 1
+            const prev = i >= 1 ? () => setIsOpened(index - 1) : undefined
+            const next =
+              i < infoBlocks.length - 1
+                ? () => setIsOpened(index + 1)
+                : undefined
 
             const props = {
               close,
@@ -105,24 +109,30 @@ const ThreeDInformation = () => {
               alt: info.alt,
               open: () => setIsOpened(index),
               isOpen: opened === index,
-            };
+            }
 
             if (next) {
-              props.nextLogoAlt = infoBlocks[i + 1].alt;
-              props.nextLogo = infoBlocks[i + 1].icon;
+              props.nextLogoAlt = infoBlocks[i + 1].alt
+              props.nextLogo = infoBlocks[i + 1].icon
             }
 
             if (prev) {
-              props.prevLogoAlt = infoBlocks[i - 1].alt;
-              props.prevLogo = infoBlocks[i - 1].icon;
+              props.prevLogoAlt = infoBlocks[i - 1].alt
+              props.prevLogo = infoBlocks[i - 1].icon
             }
 
             return (
               <IconWrapper key={info.title} {...props}>
-                {info.paragraphs.map(key => <p key={key}>{t(key)}</p>)}
-                {info.image && <BodyImageWrapper><BodyImage src={info.image} alt={t(info.alt)} /></BodyImageWrapper>}
+                {info.paragraphs.map(key => (
+                  <p key={key}>{t(key)}</p>
+                ))}
+                {info.image && (
+                  <BodyImageWrapper>
+                    <BodyImage src={assetSrc(info.image)} alt={t(info.alt)} />
+                  </BodyImageWrapper>
+                )}
               </IconWrapper>
-            ) 
+            )
           })}
         </Gallery>
         <SubTitle>{t('service')}</SubTitle>
@@ -130,10 +140,10 @@ const ThreeDInformation = () => {
           <Line>
             <Icons>
               {service.icons.map(({ src, alt }, i) => {
-                const isLast = i === service.icons.length - 1;
+                const isLast = i === service.icons.length - 1
                 return (
                   <React.Fragment>
-                    <Image src={src} alt={t(alt)} />
+                    <Image src={assetSrc(src)} alt={t(alt)} />
                     {!isLast && <Arrow className="icon fa-arrow-right" />}
                   </React.Fragment>
                 )

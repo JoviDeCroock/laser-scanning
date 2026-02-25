@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import Modal from '../components/Modal'
+import assetSrc from '../lib/assetSrc'
 
 const Image = styled.img`
   cursor: pointer;
@@ -12,7 +13,7 @@ const Image = styled.img`
   filter: drop-shadow(2px 4px 6px #787878);
 
   &:hover {
-    transition: all .33s ease-in-out;
+    transition: all 0.33s ease-in-out;
     transform: scale(1.1);
   }
 
@@ -36,10 +37,10 @@ const Button = styled.button`
   cursor: pointer;
   height: 50px;
   width: 50px;
-`;
+`
 
 const ImageWrapper = styled.span`
-  align-items:center;
+  align-items: center;
   width: 50%;
   height: 75%;
   display: flex;
@@ -51,7 +52,7 @@ const ImageWrapper = styled.span`
     margin-left: unset;
     margin-right: unset;
   }
-`;
+`
 
 const SubText = styled.p`
   cursor: pointer;
@@ -62,22 +63,22 @@ const SubText = styled.p`
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const ButtonWrapper = styled.span`
   align-items: center;
   display: flex;
-`;
+`
 
 const Logo = styled.img`
   cursor: pointer;
   height: 50px;
   width: 50px;
-`;
+`
 
 const Invisible = styled.span`
   visibility: hidden;
-`;
+`
 
 const IconWrapper = ({
   src,
@@ -98,34 +99,52 @@ const IconWrapper = ({
   return (
     <React.Fragment>
       <ImageWrapper>
-        <Image title={t(title)} alt={t(alt)} src={src} onClick={open} />
-        <SubText title={t(title)} onClick={open}>{t(title)}</SubText>
+        <Image
+          title={t(title)}
+          alt={t(alt)}
+          src={assetSrc(src)}
+          onClick={open}
+        />
+        <SubText title={t(title)} onClick={open}>
+          {t(title)}
+        </SubText>
       </ImageWrapper>
       <Modal
         isOpen={isOpen}
         onRequestClose={close}
         title={t(title)}
-        icon={{ src, alt: t(alt) }}
+        icon={{ src: assetSrc(src), alt: t(alt) }}
         footer={
           <ButtonGroup>
             {prev ? (
               <ButtonWrapper>
-                <Logo src={prevLogo} alt={t(prevLogoAlt)} onClick={prev} />
+                <Logo
+                  src={assetSrc(prevLogo)}
+                  alt={t(prevLogoAlt)}
+                  onClick={prev}
+                />
                 <Button className="icon fa-arrow-left" left onClick={prev} />
               </ButtonWrapper>
-            ) : <Invisible aria-hidden="true"  />}
+            ) : (
+              <Invisible aria-hidden="true" />
+            )}
             {next ? (
               <ButtonWrapper>
                 <Button className="icon fa-arrow-right" onClick={next} />
-                <Logo src={nextLogo} alt={t(nextLogoAlt)} left={false} onClick={next} />
+                <Logo
+                  src={assetSrc(nextLogo)}
+                  alt={t(nextLogoAlt)}
+                  left={false}
+                  onClick={next}
+                />
               </ButtonWrapper>
-            ) : <Invisible aria-hidden="true"  />}
+            ) : (
+              <Invisible aria-hidden="true" />
+            )}
           </ButtonGroup>
         }
       >
-        <React.Fragment>
-          {children}
-        </React.Fragment>
+        <React.Fragment>{children}</React.Fragment>
       </Modal>
     </React.Fragment>
   )

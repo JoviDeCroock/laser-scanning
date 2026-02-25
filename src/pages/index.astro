@@ -1,0 +1,16 @@
+---
+import HomePage from '../components/HomePage'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getProjects } from '../lib/prismic'
+
+const projects = await getProjects()
+---
+
+<BaseLayout
+  title="EDS Systems - laser scanning"
+  description="3D Laser Scanning"
+  robots="index, follow"
+  keywords="3D laserscanning bim"
+>
+  <HomePage projects={projects} client:only="react" />
+</BaseLayout>
