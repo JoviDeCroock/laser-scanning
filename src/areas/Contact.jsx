@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from '../localization/TranslationContext'
+import Icon from '../components/Icon'
 
 const Contact = () => {
   const { t } = useTranslation()
@@ -9,7 +10,8 @@ const Contact = () => {
       <div className="row">
         <ul className="labeled-icons">
           <li>
-            <h3 className="icon fa-home">
+            <h3 className="icon">
+              <Icon name="home" />
               <span className="label">{t('address')}</span>
             </h3>
             Legerbosstraat 18
@@ -19,13 +21,15 @@ const Contact = () => {
             {t('belgium')}
           </li>
           <li>
-            <h3 className="icon fa-mobile">
+            <h3 className="icon">
+              <Icon name="mobile" />
               <span className="label">{t('phone')}</span>
             </h3>
             +324 77 69 06 09
           </li>
           <li>
-            <h3 className="icon fa-envelope-o">
+            <h3 className="icon">
+              <Icon name="envelope-o" />
               <span className="label">Email</span>
             </h3>
             <a href="mailto:mark-eds-systems@telenet.be">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '../lib/styled'
 import useNoBodyScroll from './useNoBodyScroll'
+import Icon from './Icon'
 
 const StyledDialog = styled('dialog')`
   background-color: white;
@@ -108,11 +109,13 @@ const Modal = ({ children, isOpen, onRequestClose, icon, title, footer }) => {
       aria-label={title}
     >
       <Button
-        className="icon fa-times"
+        className="icon"
         type="button"
         aria-label="Close"
         onClick={onRequestClose}
-      />
+      >
+        <Icon name="times" />
+      </Button>
       <HeaderWrapper>
         <HeaderIcon src={icon?.src || ''} alt={icon?.alt || ''} />
         <HeaderTitle>{title}</HeaderTitle>

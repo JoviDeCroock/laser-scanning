@@ -9,7 +9,7 @@
   @return size-token($keys...);
 }
 
-/// Makes an element's :before pseudoelement a FontAwesome icon.
+/// Utility mixin for icon-like pseudo elements.
 /// @param {string} $content Optional content value to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
 @mixin icon($content: false, $where: before) {
@@ -20,11 +20,8 @@
       content: $content;
     }
 
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
+    display: inline-block;
+    line-height: 1;
     text-transform: none !important;
   }
 }

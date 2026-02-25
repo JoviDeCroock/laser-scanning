@@ -4,7 +4,6 @@
 @use 'libs/skel' as *;
 @use 'libs/functions' as *;
 @use 'libs/mixins' as *;
-@use '../css/font-awesome.min.css';
 
 @function _duration($keys...) {
   @return duration-token($keys...);
@@ -475,9 +474,18 @@ input[type='radio'] {
 /* Icon */
 
 .icon {
-  @include icon;
+  align-items: center;
   border-bottom: none;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
   position: relative;
+
+  svg {
+    display: block;
+    height: 1em;
+    width: 1em;
+  }
 
   > .label {
     display: none;
@@ -648,9 +656,7 @@ ul {
       }
 
       .icon {
-        &:before {
-          font-size: 1.5em;
-        }
+        font-size: 1.5em;
       }
     }
   }
@@ -1117,7 +1123,7 @@ input[type='button'],
     width: 1em;
 
     &:before {
-      content: '\f1ce';
+      content: 'o';
     }
   }
 
@@ -1168,7 +1174,7 @@ input[type='button'],
     right: 0;
 
     &:before {
-      content: '\f105';
+      content: '>';
       right: 0;
     }
   }
@@ -1177,7 +1183,7 @@ input[type='button'],
     left: 0;
 
     &:before {
-      content: '\f104';
+      content: '<';
       left: 0;
     }
   }
@@ -1204,7 +1210,7 @@ input[type='button'],
       @include vendor('box-sizing', 'content-box');
       border-radius: 100%;
       border: solid 3px rgba(255, 255, 255, 0.5);
-      content: '\f00d';
+      content: 'x';
       display: block;
       font-size: 1em;
       height: 1.75em;

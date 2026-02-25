@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '../lib/styled'
 import { useTranslation } from '../localization/TranslationContext'
 import Modal from '../components/Modal'
+import Icon from './Icon'
 import assetSrc from '../lib/assetSrc'
 
 const Image = styled('img')`
@@ -123,18 +124,22 @@ const IconWrapper = ({
                   alt={t(prevLogoAlt)}
                   onClick={prev}
                 />
-                <Button className="icon fa-arrow-left" left onClick={prev} />
+                <Button className="icon" left onClick={prev}>
+                  <Icon name="arrow-left" />
+                </Button>
               </ButtonWrapper>
             ) : (
               <Invisible aria-hidden="true" />
             )}
             {next ? (
               <ButtonWrapper>
-                <Button className="icon fa-arrow-right" onClick={next} />
+                <Button className="icon" onClick={next}>
+                  <Icon name="arrow-right" />
+                </Button>
                 <Logo
                   src={assetSrc(nextLogo)}
                   alt={t(nextLogoAlt)}
-                  left={false}
+                  left="false"
                   onClick={next}
                 />
               </ButtonWrapper>

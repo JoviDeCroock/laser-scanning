@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '../lib/styled'
 import useNoBodyScroll from './useNoBodyScroll'
+import Icon from './Icon'
 
 const Dialog = styled('dialog')`
   background: transparent;
@@ -260,24 +261,18 @@ const Lightbox = ({
       aria-label="Project slideshow"
     >
       <Content>
-        <CloseButton
-          type="button"
-          className="icon fa-times"
-          onClick={onClose}
-        />
+        <CloseButton type="button" className="icon" onClick={onClose}>
+          <Icon name="times" />
+        </CloseButton>
         {currentImage > 0 && (
-          <PrevButton
-            type="button"
-            className="icon fa-arrow-left"
-            onClick={onPrev}
-          />
+          <PrevButton type="button" className="icon" onClick={onPrev}>
+            <Icon name="arrow-left" />
+          </PrevButton>
         )}
         {currentImage < images.length - 1 && (
-          <NextButton
-            type="button"
-            className="icon fa-arrow-right"
-            onClick={onNext}
-          />
+          <NextButton type="button" className="icon" onClick={onNext}>
+            <Icon name="arrow-right" />
+          </NextButton>
         )}
         <Frame>
           {leavingImage && (

@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from './Icon'
 
 const Footer = () => (
   <div id="footer">
@@ -8,8 +9,9 @@ const Footer = () => (
           <a
             aria-label="Mail EDS Systems"
             href="mailto:mark-eds-systems@telenet.be"
-            className="icon fa-envelope-o"
+            className="icon"
           >
+            <Icon name="envelope-o" />
             <span className="label">Email</span>
           </a>
         </li>

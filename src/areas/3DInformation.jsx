@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '../lib/styled'
 import { useTranslation } from '../localization/TranslationContext'
 import IconWrapper from '../components/InformationIcon'
+import Icon from '../components/Icon'
 import infoBlocks from '../constants/infoBlocks'
 import services from '../constants/services'
 import assetSrc from '../lib/assetSrc'
@@ -144,7 +145,11 @@ const ThreeDInformation = () => {
                 return (
                   <React.Fragment>
                     <Image src={assetSrc(src)} alt={t(alt)} />
-                    {!isLast && <Arrow className="icon fa-arrow-right" />}
+                    {!isLast && (
+                      <Arrow className="icon">
+                        <Icon name="arrow-right" />
+                      </Arrow>
+                    )}
                   </React.Fragment>
                 )
               })}
