@@ -1,0 +1,14 @@
+---
+import UnsubscribePage from '../components/UnsubscribePage'
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Unsubscribe | EDS Systems"
+  description="Manage your EDS Systems email preferences."
+  robots="noindex"
+  keywords=""
+  canonical="/unsubscribe"
+>
+  <UnsubscribePage client:only="react" />
+</BaseLayout>

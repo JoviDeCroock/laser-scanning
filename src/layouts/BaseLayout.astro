@@ -1,0 +1,61 @@
+---
+import '../assets/scss/main.scss'
+import defaultOgImage from '../assets/images/website-icon.png'
+
+const {
+  title = 'EDS Systems | 3D Laser Scanning in Belgium',
+  description =
+    'EDS Systems delivers precise 3D laser scanning, point clouds, and BIM-ready plans for architecture, industry, and renovation projects across Belgium.',
+  robots = 'index, follow',
+  keywords =
+    '3D laser scanning, laserscanning, point cloud, BIM, as-built plans, Belgium, EDS Systems',
+  imageUrl,
+  canonical,
+  structuredData,
+} = Astro.props
+
+const siteOrigin = Astro.site?.toString() ?? Astro.url.origin
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteOrigin).toString()
+const ogImageUrl = new URL(imageUrl ?? defaultOgImage, siteOrigin).toString()
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="description" content={description} />
+    <meta name="author" content="EDS Systems" />
+    <meta property="og:description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="EDS Systems" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="robots" content={robots} />
+    <meta name="keywords" content={keywords} />
+    {structuredData && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(structuredData)}
+      />
+    )}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,400&display=optional"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <slot />
+    </div>
+  </body>
+</html>

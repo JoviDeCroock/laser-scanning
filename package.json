@@ -5,41 +5,22 @@
   "author": "Jovi De Croock",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "postbuild": "cp ./src/assets/images/website-icon.png ./public/website-icon.png",
-    "dev": "gatsby develop",
-    "format": "prettier --write '**/*.js'"
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "format": "prettier --write '**/*.{js,jsx,mjs,astro}'"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@prismicio/client": "^7.18.0",
     "@sendgrid/mail": "^7.4.2",
-    "hoofd": "^1.4.0",
-    "i18next": "17.0.6",
-    "preact": "^10.4.7",
-    "preact-render-to-string": "^5.1.21",
-    "query-string": "^6.13.8",
-    "react": "16.11.0",
-    "react-dom": "16.11.0",
-    "react-i18next": "^10.11.4",
-    "react-images": "^0.5.19",
-    "react-modal": "^3.14.4",
-    "styled-components": "5.3.5"
+    "astro": "^5.3.0",
+    "goober": "^2.1.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.83.4"
   },
   "devDependencies": {
-    "gatsby": "^4.12.0",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-hoofd": "^0.4.0",
-    "gatsby-plugin-image": "^2.12.1",
-    "gatsby-plugin-preact": "^6.12.1",
-    "gatsby-plugin-purgecss": "^6.1.0",
-    "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-robots-txt": "^1.7.1",
-    "gatsby-plugin-sass": "^5.12.1",
-    "gatsby-plugin-sharp": "^4.12.1",
-    "gatsby-plugin-sitemap": "^5.12.1",
-    "gatsby-plugin-styled-components": "^5.12.1",
-    "gatsby-source-prismic": "^5.2.5",
-    "gatsby-transformer-sharp": "^4.12.1",
-    "node-sass": "^6.0.1",
     "prettier": "^1.14.2"
   }
 }

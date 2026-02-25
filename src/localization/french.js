@@ -7,6 +7,7 @@ const locale = {
     unsubscribe: 'Unsubscribe',
     scanning: '3D Laser Scanning',
     getInTouch: 'Contact',
+    belgium: 'Belgique',
     phone: 'Téléphone',
     projects: 'Projets',
     threeD: 'Numérisation et traitement 3D',
@@ -15,7 +16,7 @@ const locale = {
     scanToPlan: 'Scan vers plan',
     scanToCloud: 'Scan vers nuage de points',
     scanToModel: 'Scan vers modèle',
-    siteDescription: "3D Laser Scanning",
+    siteDescription: '3D Laser Scanning',
     introduction: 'Introduction',
     introCopy: `EDS Systems est une équipe de dessinateurs enthousiastes ayant une grande expérience dans le secteur de la construction.
     Ils se sont spécialisés dans les prises de mesures digitales de bâtiments, de monuments, d’installations et d’infrastructures industrielles
@@ -41,8 +42,8 @@ const locale = {
     des vues de façades. Le niveau de détail souhaité est défini d’avance (i.e. représentation des portes, fenêtres, décorations,…).`,
     model1: `Le nuage de points collecté sert de base au traitement des modèles 3D et des vues. Le niveau de détail souhaité est défini d’avance
     (i.e. représentation des portes, fenêtres, décorations,…).`,
-    all: 'All'
+    all: 'All',
   },
 }
 
-export default locale;
+export default locale

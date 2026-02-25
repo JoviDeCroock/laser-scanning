@@ -1,37 +1,37 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '../localization/TranslationContext'
 
 import Footer from './Footer'
 import avatar from '../assets/images/website-icon.png'
 import LanguageSelector from './LanguageSelector'
-
-const ContactLink = styled.a`
-  border: 0;
-  color: rgb(232, 230, 227);
-  cursor: pointer;
-  text-decoration: none;
-  width: unset !important;
-`;
+import assetSrc from '../lib/assetSrc'
 
 const Header = ({ language, setLanguage }) => {
   const { t } = useTranslation()
   return (
     <header id="header">
       <div className="inner">
-        <img src={avatar} className="image avatar" alt="EDS Systems" />
+        <img
+          src={assetSrc(avatar)}
+          className="image avatar"
+          alt="EDS Systems"
+          width="128"
+          height="128"
+          fetchpriority="high"
+          decoding="async"
+        />
         <h1>
           <strong>EDS Systems</strong>
         </h1>
         <h2>
           <strong>Mark Swinnen</strong>
         </h2>
-        <p style={{ fontSize: '1em' }}>
-          {t('scanning')}
-        </p>
+        <p style={{ fontSize: '1em' }}>{t('scanning')}</p>
         <LanguageSelector language={language} setLanguage={setLanguage} />
       </div>
-      <ContactLink href="#four">Contact</ContactLink>
+      <a className="header-contact-link" href="#four">
+        Contact
+      </a>
       <Footer />
     </header>
   )

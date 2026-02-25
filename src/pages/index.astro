@@ -1,0 +1,37 @@
+---
+import HomePage from '../components/HomePage'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getProjects } from '../lib/prismic'
+
+const projects = await getProjects()
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'EDS Systems',
+  url: 'https://eds-systems.be/',
+  description:
+    'Specialist in 3D laser scanning, point clouds, and BIM-ready documentation for accurate existing-condition surveys.',
+  telephone: '+32477690609',
+  email: 'mark-eds-systems@telenet.be',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Legerbosstraat 18',
+    postalCode: '1860',
+    addressLocality: 'Meise',
+    addressCountry: 'BE',
+  },
+  areaServed: 'BE',
+}
+---
+
+<BaseLayout
+  title="EDS Systems | 3D Laser Scanning, Point Clouds and BIM"
+  description="EDS Systems provides accurate 3D laser scanning, point clouds, and BIM-ready plans for architecture, renovation, and industrial projects in Belgium."
+  robots="index, follow"
+  keywords="3D laser scanning Belgium, point cloud survey, BIM documentation, as-built plans"
+  canonical="/"
+  structuredData={structuredData}
+>
+  <HomePage projects={projects} client:load />
+</BaseLayout>
