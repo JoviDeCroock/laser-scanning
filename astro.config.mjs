@@ -3,5 +3,8 @@ import react from '@astrojs/react'
 
 export default defineConfig({
   site: 'https://eds-systems.be',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [react()],
 })
